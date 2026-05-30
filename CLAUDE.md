@@ -1,0 +1,1 @@
+C:/Users/Pranto Mridha/Desktop/Projects/Shopify Theme/Review-teeth/AGENTS.md
