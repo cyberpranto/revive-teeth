@@ -9,12 +9,67 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "founder-video": {
+      "type": "founder-video",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "lifestyle": {
+      "type": "lifestyle",
+      "settings": {}
+    },
+    "founder-notes": {
+      "type": "founder-note",
+      "settings": {}
+    },
+    "point-protocols": {
+      "type": "point-protocols",
+      "settings": {}
+    },
+    "how-it-works": {
+      "type": "how-it-works",
+      "settings": {}
+    },
+    "candidate": {
+      "type": "candidate",
+      "settings": {}
+    },
+    "kit": {
+      "type": "kit",
+      "settings": {}
+    },
+    "comparison": {
+      "type": "comparison",
+      "settings": {}
+    },
+    "trust-badges": {
+      "type": "trust-badges",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "hero",
+    "founder-video",
+    "testimonials",
+    "lifestyle",
+    "founder-notes",
+    "point-protocols",
+    "how-it-works",
+    "candidate",
+    "kit",
+    "comparison",
+    "trust=badges",
+    "faq"
   ]
 }
