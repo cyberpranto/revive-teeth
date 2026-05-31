@@ -7,14 +7,20 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "404",
       "settings": {}
+    },
+    "hello_world_eMaQUp": {
+      "type": "hello-world",
+      "name": "Hello World Template",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "hello_world_eMaQUp"
   ]
 }
