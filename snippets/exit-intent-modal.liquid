@@ -1,48 +1,48 @@
-<div class=" modal-bg " id=" exitModal " role=" dialog " aria-modal=" true " aria-labelledby=" exitTitle ">
-  <div class=" modal exit-modal ">
-    <button class=" modal-close " aria-label=" Close " data-close=" ">
-      <svg viewBox=" 0 0 24 24 " fill=" none " stroke=" currentColor " stroke-width=" 2 ">
-        <path d=" M6 6l12 12M18 6L6 18 ">
+<div class="modal-bg"id="exitModal"role="dialog"aria-modal="true"aria-labelledby="exitTitle">
+  <div class="modal exit-modal">
+    <button class="modal-close"aria-label="Close"data-close="">
+      <svg viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2">
+        <path d="M6 6l12 12M18 6L6 18">
             </path>
       </svg>
     </button>
-    <div class=" step-meta ">Before you go</div>
-    <h3 id=" exitTitle ">Not sure if Revive Veneers are right for you?</h3>
+    <div class="step-meta">Before you go</div>
+    <h3 id="exitTitle">Not sure if Revive Veneers are right for you?</h3>
     <p>
       Take our 30-second Smile Assessment. We'll tell you honestly whether you're a candidate, and email you Dr.
       Turley's pre-order guide.
     </p>
     <!--
-      SHOPIFY DEVELOPER NOTE: Replace this fake-submit form with real Klaviyo integration. Tag subscribers with  " exit-intent-signup " for retargeting. The form should trigger the  " send pre-order guide " email flow in Klaviyo.
+      SHOPIFY DEVELOPER NOTE: Replace this fake-submit form with real Klaviyo integration. Tag subscribers with "exit-intent-signup"for retargeting. The form should trigger the "send pre-order guide"email flow in Klaviyo.
     -->
     <form
-      class=" exit-form "
-      id=" exitForm "
+      class="exit-form"
+      id="exitForm"
       onsubmit="
         event.preventDefault();
         document.getElementById('exitTitle').textContent='Check your inbox.';
         document.getElementById('exitForm').style.display='none';
         setTimeout(()=&gt; closeModal('exitModal'), 1500);
-      "
+     "
     >
-      <input type=" email " placeholder=" you@example.com " required=" " aria-label=" Email ">
+      <input type="email"placeholder="you@example.com"required=""aria-label="Email">
       <button
-        type=" submit "
+        type="submit"
       >
         Send Guide
       </button>
     </form>
-    <div class=" exit-or ">or</div>
+    <div class="exit-or">or</div>
     <button
-      class=" btn-outline "
+      class="btn-outline"
       style="
         width:100%;
         justify-content:center
-      "
-      id=" exitTakeQuiz "
+     "
+      id="exitTakeQuiz"
     >
       Take the 30-second Smile Assessment
     </button>
-    <p class=" exit-mini ">No spam. Unsubscribe anytime.</p>
+    <p class="exit-mini">No spam. Unsubscribe anytime.</p>
   </div>
 </div>
