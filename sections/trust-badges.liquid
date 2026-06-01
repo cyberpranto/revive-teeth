@@ -1,135 +1,147 @@
 <div class="trust">
   <div class="wrap">
     <div class="trust-grid">
-      <div class="tbadge">
-        <svg viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="1.8">
-          <circle cx="12"cy="8"r="4">
-              </circle>
-                  <path d="M4 21c0-4 4-6 8-6s8 2 8 6">
-                      </path>
-        </svg>
-        <div class="lbl">Dentist-Designed</div>
-      </div>
-      <div class="tbadge">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-        >
-          <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z">
-              </path>
-        </svg>
-        <div class="lbl">30-Day Money-Back</div>
-      </div>
-      <div class="tbadge">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12"
-              cy="12"r="9">
-              </circle>
-                  <path
-                      d="M12 7v5l3 2">
-                      </path>
-        </svg>
-        <div
-          class="lbl"
-        >
-          3–5 Year Lifespan
+
+      {% for block in section.blocks %}
+
+        <div class="tbadge" {{ block.shopify_attributes }}>
+
+          {% case block.settings.icon %}
+
+            {% when 'dentist' %}
+              <!-- SVG 1 -->
+              {% render 'dentist-icon' %}
+
+            {% when 'moneyback' %}
+              <!-- SVG 2 -->
+              {% render 'moneyback-icon' %}
+
+
+            {% when 'lifespan' %}
+              <!-- SVG 3 -->
+              {% render 'lifespan-icon' %}
+
+
+            {% when 'bpa' %}
+              <!-- SVG 4 -->
+              {% render 'bpa-icon' %}
+
+
+            {% when 'shipping' %}
+              <!-- SVG 5 -->
+              {% render 'shipping-icon' %}
+
+            {% when 'remake' %}
+              <!-- SVG 6 -->
+              {% render 'remake-icon' %}
+
+          {% endcase %}
+
+          <div class="lbl">
+            {{ block.settings.label }}
+          </div>
+
         </div>
-      </div>
-      <div
-        class="tbadge"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linejoin="round"
-        >
-                                                                                                                                  <path
-                                                                                                                                      d="M12 3 C 12 9,
-          18 12,
-          18 17 a6 6 0 0 1 -12 0 C 6 12,
-          12 9,
-          12 3 Z">
-                                                                                                                                      </path>
-        </svg>
-        <div
-          class="lbl"
-        >
-          BPA-Free Dental Resin
-        </div>
-      </div>
-      <div
-        class="tbadge"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-              d="M3 12h13l-4-4M16 12l-4 4">
-              </path>
-                  <path
-                      d="M21 6v12">
-                      </path>
-        </svg>
-        <div
-          class="lbl"
-        >
-          Ships Free Both Ways
-        </div>
-      </div>
-      <div
-        class="tbadge"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-              d="M3 12a9 9 0 0 1 15.5-6.3L21 8">
-              </path>
-                  <path
-                      d="M21 4v4h-4">
-                      </path>
-                          <path
-                              d="M21 12a9 9 0 0 1-15.5 6.3L3 16">
-                              </path>
-                                  <path
-                                      d="M3 20v-4h4">
-                                      </path>
-        </svg>
-        <div
-          class="lbl"
-        >
-          Free Remakes Until It's Right
-        </div>
-      </div>
+
+      {% endfor %}
+
     </div>
   </div>
 </div>
 
 
 {% schema %}
-{
- "name":"Trust Badges",
- "settings": []
-}
+  {
+    "name": "Trust Badges",
+    "blocks": [
+      {
+        "type": "badge",
+        "name": "Badge",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "select",
+            "id": "icon",
+            "label": "Icon",
+            "options": [
+              {
+                "value": "dentist",
+                "label": "Dentist Designed"
+              },
+              {
+                "value": "moneyback",
+                "label": "Money Back"
+              },
+              {
+                "value": "lifespan",
+                "label": "Lifespan"
+              },
+              {
+                "value": "bpa",
+                "label": "BPA Free"
+              }, {
+                "value": "shipping",
+                "label": "Free Shipping"
+              }, {
+                "value": "remake",
+                "label": "Free Remakes"
+              }
+            ],
+            "default": "dentist"
+          }, {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Trust Badges",
+        "blocks": [
+          {
+            "type": "badge",
+            "settings": {
+              "icon": "dentist",
+              "label": "Dentist-Designed"
+            }
+          },
+          {
+            "type": "badge",
+            "settings": {
+              "icon": "moneyback",
+              "label": "30-Day Money-Back"
+            }
+          },
+          {
+            "type": "badge",
+            "settings": {
+              "icon": "lifespan",
+              "label": "3–5 Year Lifespan"
+            }
+          },
+          {
+            "type": "badge",
+            "settings": {
+              "icon": "bpa",
+              "label": "BPA-Free Dental Resin"
+            }
+          }, {
+            "type": "badge",
+            "settings": {
+              "icon": "shipping",
+              "label": "Ships Free Both Ways"
+            }
+          }, {
+            "type": "badge",
+            "settings": {
+              "icon": "remake",
+              "label": "Free Remakes Until It's Right"
+            }
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
