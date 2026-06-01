@@ -1,100 +1,132 @@
-<!-- ============== HOW IT WORKS (separated, moved below Protocol) ============== -->
 <section id="how">
   <div class="wrap">
-    <div
-      class="sect-head"
-      style="
-        text-align:center;
-        max-width:760px;
-        margin-left:auto;
-        margin-right:auto
-     "
-    >
-      <div class="eyebrow">How It Works</div>
-      <h2 class="display"style="margin-top:14px">From your impressions to your new smile in 2–3 weeks.</h2>
-      <p class="sub"style="margin:16px auto 0">
-        The process takes about 5 minutes of your time. Everything else happens at the lab, with Dr. Turley designing
-        every case.
+
+    <div class="sect-head" style="text-align:center;max-width:760px;margin-left:auto;margin-right:auto">
+      <div class="eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+
+      <h2 class="display" style="margin-top:14px">
+        {{ section.settings.heading }}
+      </h2>
+
+      <p class="sub" style="margin:16px auto 0">
+        {{ section.settings.description }}
       </p>
     </div>
+
     <div class="howit-row">
-      <div class="howit-card">
-        <div class="hn">01</div>
-        <div class="ht">Order today</div>
-        <p class="hp">Choose your configuration and complete checkout. Your impression kit ships within 48 hours.</p>
-        <div class="hm">15 seconds</div>
-      </div>
-      <div class="howit-card">
-        <div class="hn">02</div>
-        <div class="ht">Take impressions at home</div>
-        <p
-          class="hp"
-        >
-          Watch the video. Follow along. The kit has everything you need, including a backup batch of putty if anything
-          goes wrong.
-        </p>
-        <div
-          class="hm"
-        >
-          5 minutes
+      {% for block in section.blocks %}
+        <div class="howit-card" {{ block.shopify_attributes }}>
+          <div class="hn">
+            {{ block.settings.number }}
+          </div>
+
+          <div class="ht">
+            {{ block.settings.title }}
+          </div>
+
+          <p class="hp">
+            {{ block.settings.description }}
+          </p>
+
+          <div class="hm">
+            {{ block.settings.meta }}
+          </div>
         </div>
-      </div>
-      <div
-        class="howit-card"
-      >
-        <div
-          class="hn"
-        >
-          03
-        </div>
-        <div
-          class="ht"
-        >
-          Mail it back free
-        </div>
-        <p
-          class="hp"
-        >
-          Drop your impressions in any USPS box using the prepaid return mailer. Dr. Turley's smile design begins as
-          soon as we receive them.
-        </p>
-        <div
-          class="hm"
-        >
-          Free shipping
-        </div>
-      </div>
-      <div
-        class="howit-card"
-      >
-        <div
-          class="hn"
-        >
-          04
-        </div>
-        <div
-          class="ht"
-        >
-          Receive your custom smile
-        </div>
-        <p
-          class="hp"
-        >
-          Your veneers arrive ready to snap on. Designed to last 3–5+ years with proper care.
-        </p>
-        <div
-          class="hm"
-        >
-          2–3 weeks total
-        </div>
-      </div>
+      {% endfor %}
     </div>
+
   </div>
 </section>
 
+
 {% schema %}
-{
-  "name": "How It Works",
-  "settings": []
-}
+  {
+    "name": "How It Works",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "How It Works"
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "From your impressions to your new smile in 2–3 weeks."
+      }, {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "The process takes about 5 minutes of your time. Everything else happens at the lab, with Dr. Turley designing every case."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "step",
+        "name": "Step",
+        "settings": [
+          {
+            "type": "text",
+            "id": "number",
+            "label": "Step Number",
+            "default": "01"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          }, {
+            "type": "text",
+            "id": "meta",
+            "label": "Bottom Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "How It Works",
+        "blocks": [
+          {
+            "type": "step",
+            "settings": {
+              "number": "01",
+              "title": "Order today",
+              "description": "Choose your configuration and complete checkout. Your impression kit ships within 48 hours.",
+              "meta": "15 seconds"
+            }
+          }, {
+            "type": "step",
+            "settings": {
+              "number": "02",
+              "title": "Take impressions at home",
+              "description": "Watch the video. Follow along. The kit has everything you need, including a backup batch of putty if anything goes wrong.",
+              "meta": "5 minutes"
+            }
+          }, {
+            "type": "step",
+            "settings": {
+              "number": "03",
+              "title": "Mail it back free",
+              "description": "Drop your impressions in any USPS box using the prepaid return mailer. Dr. Turley's smile design begins as soon as we receive them.",
+              "meta": "Free shipping"
+            }
+          }, {
+            "type": "step",
+            "settings": {
+              "number": "04",
+              "title": "Receive your custom smile",
+              "description": "Your veneers arrive ready to snap on. Designed to last 3–5+ years with proper care.",
+              "meta": "2–3 weeks total"
+            }
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
