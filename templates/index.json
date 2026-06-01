@@ -399,6 +399,109 @@
       "name": "Trust Badges",
       "settings": {}
     },
+    "faq_Mtk6mf": {
+      "type": "faq",
+      "blocks": {
+        "faq_CcexfW": {
+          "type": "faq",
+          "settings": {
+            "question": "Should I get both arches or single arch?",
+            "answer": "<p>Most buyers choose both arches because upper-only veneers can look unnatural when you smile or talk. The bottom teeth show in roughly 80% of smile photos, and a color mismatch between veneered upper teeth and natural lower teeth is the most common reason people stop wearing snap-on veneers.</p>"
+          }
+        },
+        "faq_cckgKB": {
+          "type": "faq",
+          "settings": {
+            "question": "Am I a candidate for Revive Veneers?",
+            "answer": "<p>Most people are. Revive Veneers work well for anyone with healthy teeth and gums who wants to improve the appearance of stained, slightly gapped, or worn teeth. They aren't right for people with active gum disease, severe bite issues, multiple missing teeth at the end of the arch, or anyone currently wearing full dentures.</p>"
+          }
+        },
+        "faq_U3dpWn": {
+          "type": "faq",
+          "settings": {
+            "question": "What happens after I order?",
+            "answer": "<p>Your impression kit ships within 48 hours. You take impressions at home (about 5 minutes), mail them back free, and your custom veneers arrive 2–3 weeks after we receive them. Dr. Turley designs every case in between.</p>"
+          }
+        },
+        "faq_EFTRVg": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I cancel after ordering?",
+            "answer": "<p>Yes, before your impressions arrive at the lab. Once we receive your impressions and Dr. Turley begins the smile design, the order can't be cancelled because each veneer is custom-designed for your mouth.</p>"
+          }
+        },
+        "faq_RqkgRe": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I split the payment into installments?",
+            "answer": "<p>We don't offer in-page financing or third-party lenders. If you'd like to split your payment into 3 installments, email hello@reviveteeth.com and we'll arrange it directly.</p>"
+          }
+        },
+        "faq_W9RWGQ": {
+          "type": "faq",
+          "settings": {
+            "question": "What if I'm missing teeth?",
+            "answer": "<p>Snap-on veneers can cover gaps and improve the appearance of one or two missing front teeth, provided the missing teeth are not at the end of the arch.</p>"
+          }
+        },
+        "faq_MFdFEn": {
+          "type": "faq",
+          "settings": {
+            "question": "Will my impressions be good enough?",
+            "answer": "<p>The kit includes two batches of dental putty so you can take impressions twice if needed. If your impressions don't capture enough detail, we send a second kit free of charge.</p>"
+          }
+        },
+        "faq_Pcb9XJ": {
+          "type": "faq",
+          "settings": {
+            "question": "How long do the veneers last?",
+            "answer": "<p>3 to 5+ years with proper care. The veneers are made from durable dental-grade resin and stored in a protective case when not worn.</p>"
+          }
+        },
+        "faq_nFBJY8": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I eat with them in?",
+            "answer": "<p>Yes for most foods. We recommend removing them for hard foods and sticky foods to extend their lifespan.</p>"
+          }
+        },
+        "faq_xWDNCd": {
+          "type": "faq",
+          "settings": {
+            "question": "Will they stain?",
+            "answer": "<p>Revive Veneers are made from stain-resistant dental resin, but they can discolor over time with heavy coffee, tea, red wine, or tobacco exposure.</p>"
+          }
+        },
+        "faq_HViwmR": {
+          "type": "faq",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>US only at this time. Shipping is free both ways within the continental US, including Alaska and Hawaii.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_CcexfW",
+        "faq_cckgKB",
+        "faq_U3dpWn",
+        "faq_EFTRVg",
+        "faq_RqkgRe",
+        "faq_W9RWGQ",
+        "faq_MFdFEn",
+        "faq_Pcb9XJ",
+        "faq_nFBJY8",
+        "faq_xWDNCd",
+        "faq_HViwmR"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "eyebrow": "Common Questions",
+        "heading": "What people ask before buying",
+        "description": "If something isn't answered here, our team responds within one business day.",
+        "contact_text": "Contact us →",
+        "contact_email": "mailto:hello@reviveteeth.com"
+      }
+    },
     "faq": {
       "type": "faq",
       "settings": {
@@ -422,6 +525,7 @@
     "kit_LmrqJg",
     "comparison_LDCEVq",
     "trust_badges_MtPFLB",
+    "faq_Mtk6mf",
     "faq"
   ]
 }
