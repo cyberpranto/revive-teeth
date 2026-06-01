@@ -501,16 +501,6 @@
         "contact_text": "Contact us →",
         "contact_email": "mailto:hello@reviveteeth.com"
       }
-    },
-    "faq": {
-      "type": "faq",
-      "settings": {
-        "eyebrow": "Common Questions",
-        "heading": "What people ask before buying",
-        "description": "If something isn't answered here, our team responds within one business day.",
-        "contact_text": "Contact us →",
-        "contact_email": ""
-      }
     }
   },
   "order": [
@@ -525,7 +515,6 @@
     "kit_LmrqJg",
     "comparison_LDCEVq",
     "trust_badges_MtPFLB",
-    "faq_Mtk6mf",
-    "faq"
+    "faq_Mtk6mf"
   ]
 }
