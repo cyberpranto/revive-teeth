@@ -28,10 +28,12 @@ applyConfig("both");
 
 /* ============== PROTOCOL MOBILE COLLAPSE (Edit 4) ============== */
 // Inject chevron into each collapsible protocol card and wire up tap-to-expand.
-(function () {
+
+document.addEventListener("DOMContentLoaded", function () {
+
     const cards = document.querySelectorAll(".pcard2[data-collapsible]");
     cards.forEach((card) => {
-        const inner = card.querySelector(":scope>div:not(.diagram)");
+        const inner = card.firstElementChild;
         if (!inner) return;
         const h3 = inner.querySelector("h3");
         if (!h3) return;
@@ -76,7 +78,8 @@ applyConfig("both");
             setLabel(expand);
         });
     }
-})();
+  
+  });
 /* ============== CART BTN ============== */
 function bumpCart() {
     const el = document.getElementById("cartCount");
