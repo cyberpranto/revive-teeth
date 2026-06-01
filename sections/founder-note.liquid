@@ -1,54 +1,114 @@
-<!-- ============== SECTION 4 — FOUNDER NOTE ============== -->
 <section>
   <div class="wrap founder-grid">
     <div>
-      <div class="eyebrow">A note from Dr. Turley</div>
-      <p class="pullquote">
-       "I built Revive Teeth for patients I've seen in my practice for years — people who want their smile to look
-        right in photos again, but aren' t ready to commit to $15, 000 and permanent enamel removal. That choice should
-        exist."
-      </p>
-      <div class="founder-body">
-        <p>
-          Most snap-on veneers are cheaply manufactured plastic, shipped from factories by companies that don't have a
-          practicing dentist on their team. I've watched patients walk into my practice wearing them, embarrassed by
-          something they paid for and stopped wearing within a month.
-        </p>
-        <p>
-          That's the gap Revive Veneers fills. Every case is designed against my 7-point smile design protocol. The same
-          commitment to quality I apply in my own practice. If it doesn't pass, it doesn't ship. If it arrives and isn't
-          right, we remake it. If we still can't get it right, you get your money back.
-        </p>
-        <p>My name is on this because I built it. Welcome.</p>
+      <div class="eyebrow">
+        {{ section.settings.eyebrow }}
       </div>
-      <img
-        src="{{ 'signature.png' | asset_url }}"
-        alt="Dr. Brandon Turley"
-        class="sig-img"
-        height="100"
-        width="100"
-      >
-      <div class="sig-sub">Doctor of Dental Surgery · Founder, Revive Teeth</div>
+
+      <p class="pullquote">
+        {{ section.settings.quote }}
+      </p>
+
+      <div class="founder-body">
+        {{ section.settings.body }}
+      </div>
+
+      {% if section.settings.signature_image != blank %}
+        {{
+          section.settings.signature_image
+          | image_url: width: 600
+          | image_tag:
+            class: 'sig-img',
+            loading: 'lazy',
+            alt: section.settings.founder_name
+        }}
+      {% else %}
+        <img
+          src="{{ 'signature.png' | asset_url }}"
+          alt="{{ section.settings.founder_name }}"
+          class="sig-img"
+          loading="lazy"
+          width="100"
+          height="100"
+        >
+      {% endif %}
+
+      <div class="sig-sub">
+        {{ section.settings.signature_text }}
+      </div>
     </div>
-    <div
-      class="portrait"
-    >
-      <img
-        src="{{ 'founder-image.jfif' | asset_url }}"
-        alt="
-          Dr. Brandon Turley,
-          DDS
-       "
-        height="100"
-        width="100"
-      >
+
+    <div class="portrait">
+      {% if section.settings.founder_image != blank %}
+        {{
+          section.settings.founder_image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            alt: section.settings.founder_name
+        }}
+      {% else %}
+        <img
+          src="{{ 'founder-image.jfif' | asset_url }}"
+          alt="{{ section.settings.founder_name }}"
+          loading="lazy"
+          width="100"
+          height="100"
+        >
+      {% endif %}
     </div>
   </div>
 </section>
 
 {% schema %}
 {
- "name":"Founder Notes",
- "settings": []
+  "name": "Founder Note",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "A note from Dr. Turley"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote",
+      "default": "\"I built Revive Teeth for patients I've seen in my practice for years — people who want their smile to look right in photos again, but aren't ready to commit to $15,000 and permanent enamel removal. That choice should exist.\""
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body Content",
+      "default": "<p>Most snap-on veneers are cheaply manufactured plastic, shipped from factories by companies that don't have a practicing dentist on their team.</p><p>That's the gap Revive Veneers fills. Every case is designed against my 7-point smile design protocol.</p><p>My name is on this because I built it. Welcome.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "signature_image",
+      "label": "Signature Image"
+    },
+    {
+      "type": "text",
+      "id": "founder_name",
+      "label": "Founder Name",
+      "default": "Dr. Brandon Turley"
+    },
+    {
+      "type": "text",
+      "id": "signature_text",
+      "label": "Signature Subtitle",
+      "default": "Doctor of Dental Surgery · Founder, Revive Teeth"
+    },
+    {
+      "type": "image_picker",
+      "id": "founder_image",
+      "label": "Founder Portrait"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founder Note"
+    }
+  ]
 }
 {% endschema %}
