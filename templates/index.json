@@ -17,25 +17,85 @@
       "type": "founder-video",
       "settings": {}
     },
-    "testimonials": {
+    "testimonials_nanVhw": {
       "type": "testimonials",
-      "settings": {}
+      "blocks": {
+        "testimonial_LWfaM7": {
+          "type": "testimonial",
+          "settings": {
+            "tag": "Confidence",
+            "quote": "I didn't realize how much I was hiding it.",
+            "meta": "Customer Name, City · Month YYYY",
+            "video_url": ""
+          }
+        },
+        "testimonial_ePGwhi": {
+          "type": "testimonial",
+          "settings": {
+            "tag": "Transformation",
+            "quote": "\"It looks like my actual teeth, but better.\"",
+            "meta": "Customer Name, City · Month YYYY",
+            "video_url": ""
+          }
+        },
+        "testimonial_r3xMMF": {
+          "type": "testimonial",
+          "settings": {
+            "tag": "The Process",
+            "quote": "\"The impression took five minutes.\"",
+            "meta": "Customer Name, City · Month YYYY",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_LWfaM7",
+        "testimonial_ePGwhi",
+        "testimonial_r3xMMF"
+      ],
+      "name": "Customer Stories",
+      "settings": {
+        "section_id": "reviews",
+        "eyebrow": "Customer stories",
+        "heading": "Real stories arriving soon.",
+        "description": "We're documenting first-impression reactions from our launch customers. No scripts, no incentives. Order today and you could be one of the first stories we feature here.",
+        "note": "Video testimonials from our launch customers will appear here. We're recording real first-impression reactions. No scripts, no incentives."
+      }
     },
     "lifestyle": {
       "type": "lifestyle",
-      "settings": {}
+      "settings": {
+        "alt_text": "A confident smile, every day.",
+        "caption": "Real smiles. Clinically designed. Built for everyday confidence."
+      }
     },
     "founder-notes": {
       "type": "founder-note",
-      "settings": {}
+      "settings": {
+        "eyebrow": "A note from Dr. Turley",
+        "quote": "\"I built Revive Teeth for patients I've seen in my practice for years — people who want their smile to look right in photos again, but aren't ready to commit to $15,000 and permanent enamel removal. That choice should exist.\"",
+        "body": "<p>Most snap-on veneers are cheaply manufactured plastic, shipped from factories by companies that don't have a practicing dentist on their team.</p><p>That's the gap Revive Veneers fills. Every case is designed against my 7-point smile design protocol.</p><p>My name is on this because I built it. Welcome.</p>",
+        "founder_name": "Dr. Brandon Turley",
+        "signature_text": "Doctor of Dental Surgery · Founder, Revive Teeth"
+      }
     },
     "point-protocols": {
       "type": "point-protocols",
-      "settings": {}
+      "settings": {
+        "eyebrow": "The 7-Point Smile Design Protocol",
+        "heading": "Seven design decisions on every case.",
+        "description": "Most snap-on veneer companies ship whatever comes off the line. Revive Veneers is designed against a seven-point protocol Dr. Turley developed in his cosmetic dental practice. Every case. If it doesn't pass, it doesn't ship.",
+        "toggle_button_text": "Show all 7 steps →",
+        "closing_line": "Each case is designed by Dr. Brandon Turley, DDS — a practicing cosmetic dentist."
+      }
     },
     "how-it-works": {
       "type": "how-it-works",
-      "settings": {}
+      "settings": {
+        "eyebrow": "How It Works",
+        "heading": "From your impressions to your new smile in 2–3 weeks.",
+        "description": "The process takes about 5 minutes of your time. Everything else happens at the lab, with Dr. Turley designing every case."
+      }
     },
     "candidate": {
       "type": "candidate",
@@ -43,11 +103,19 @@
     },
     "kit": {
       "type": "kit",
-      "settings": {}
+      "settings": {
+        "eyebrow": "What's in the Impression Kit",
+        "heading": "Everything you need, plus a backup.",
+        "note": "If your first impressions don't capture enough detail, we send a second kit free. Production doesn't start until we have what we need."
+      }
     },
     "comparison": {
       "type": "comparison",
-      "settings": {}
+      "settings": {
+        "eyebrow": "What makes it different",
+        "heading": "The cheap snap-on you almost bought, next to the one you should.",
+        "subheading": "Side by side, you can see the difference between cheaply manufactured plastic and a clinically designed appliance built to a 7-point protocol."
+      }
     },
     "trust-badges": {
       "type": "trust-badges",
@@ -55,13 +123,19 @@
     },
     "faq": {
       "type": "faq",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Common Questions",
+        "heading": "What people ask before buying",
+        "description": "If something isn't answered here, our team responds within one business day.",
+        "contact_text": "Contact us →",
+        "contact_email": ""
+      }
     }
   },
   "order": [
     "hero",
     "founder-video",
-    "testimonials",
+    "testimonials_nanVhw",
     "lifestyle",
     "founder-notes",
     "point-protocols",
