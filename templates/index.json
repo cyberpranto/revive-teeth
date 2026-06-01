@@ -185,10 +185,6 @@
         "closing_line": "Each case is designed by Dr. Brandon Turley, DDS — a practicing cosmetic dentist."
       }
     },
-    "candidate": {
-      "type": "candidate",
-      "settings": {}
-    },
     "how_it_works_g44taT": {
       "type": "how-it-works",
       "blocks": {
@@ -242,8 +238,71 @@
         "description": "The process takes about 5 minutes of your time. Everything else happens at the lab, with Dr. Turley designing every case."
       }
     },
-    "kit": {
+    "candidate": {
+      "type": "candidate",
+      "settings": {}
+    },
+    "kit_LmrqJg": {
       "type": "kit",
+      "blocks": {
+        "kit_item_P8YPtV": {
+          "type": "kit_item",
+          "settings": {
+            "icon_type": "upper",
+            "title": "Upper impression tray",
+            "text": "Pre-sized to fit most adult arches comfortably."
+          }
+        },
+        "kit_item_gJ6Fc8": {
+          "type": "kit_item",
+          "settings": {
+            "icon_type": "lower",
+            "title": "Lower impression tray",
+            "text": "Same precision fit, opposite arch."
+          }
+        },
+        "kit_item_i8HrGg": {
+          "type": "kit_item",
+          "settings": {
+            "icon_type": "putty",
+            "title": "Dental putty (×2 batches)",
+            "text": "Two batches included, so you have a backup if your first try doesn't go perfectly."
+          }
+        },
+        "kit_item_ibNyJb": {
+          "type": "kit_item",
+          "settings": {
+            "icon_type": "instructions",
+            "title": "Instructions card",
+            "text": "Three steps, about 5 minutes. QR code to Dr. Turley's walkthrough video if you'd rather watch than read."
+          }
+        },
+        "kit_item_6MCeXM": {
+          "type": "kit_item",
+          "settings": {
+            "icon_type": "mailer",
+            "title": "Prepaid return mailer",
+            "text": "Drop it in any USPS box. No postage, no trip to the post office."
+          }
+        },
+        "kit_item_Y8YEij": {
+          "type": "kit_item",
+          "settings": {
+            "icon_type": "shade",
+            "title": "Shade matching card",
+            "text": "A reference strip so we capture your actual tooth color, not a guess."
+          }
+        }
+      },
+      "block_order": [
+        "kit_item_P8YPtV",
+        "kit_item_gJ6Fc8",
+        "kit_item_i8HrGg",
+        "kit_item_ibNyJb",
+        "kit_item_6MCeXM",
+        "kit_item_Y8YEij"
+      ],
+      "name": "Impression Kit",
       "settings": {
         "eyebrow": "What's in the Impression Kit",
         "heading": "Everything you need, plus a backup.",
@@ -282,7 +341,7 @@
     "point_protocols_d4RJji",
     "how_it_works_g44taT",
     "candidate",
-    "kit",
+    "kit_LmrqJg",
     "comparison",
     "trust-badges",
     "faq"
