@@ -79,8 +79,104 @@
         "signature_text": "Doctor of Dental Surgery · Founder, Revive Teeth"
       }
     },
-    "point-protocols": {
+    "point_protocols_d4RJji": {
       "type": "point-protocols",
+      "blocks": {
+        "protocol_step_Wd7HAj": {
+          "type": "protocol_step",
+          "settings": {
+            "number": "01",
+            "title": "Smile Architecture",
+            "description": "How the smile sits on your face. Proportion, symmetry, presence. Dr. Turley evaluates how the veneers will frame your specific facial structure, not against a generic template.",
+            "failure_heading": "Common failure in cheap snap-ons",
+            "failure_text": "Cheap snap-ons use one universal shape regardless of face shape, making them look obviously fake on anyone whose face proportions don't match the mold.",
+            "result_heading": "What this means for you",
+            "result_text": "Your veneers will look proportional to your face, not like you're wearing someone else's smile."
+          }
+        },
+        "protocol_step_QgUTCM": {
+          "type": "protocol_step",
+          "settings": {
+            "number": "02",
+            "title": "Bite Mapping",
+            "description": "Ensuring the veneers work with your natural bite, not against it. The protocol verifies clearance for chewing and speech without forcing pressure on adjacent teeth.",
+            "failure_heading": "How generic snap-ons get this wrong",
+            "failure_text": "Generic snap-ons can shift when you talk or eat because they weren't designed against your specific bite, leading to lisping, clicking sounds, and discomfort.",
+            "result_heading": "What this means for you",
+            "result_text": "Your veneers stay put when you eat, talk, or laugh. No clicking sounds. No shifting."
+          }
+        },
+        "protocol_step_JgVLYL": {
+          "type": "protocol_step",
+          "settings": {
+            "number": "03",
+            "title": "Tooth Proportions",
+            "description": "Width-to-height ratios refined per tooth, not factory-default. Each tooth on the veneer is individually proportioned: central incisors slightly wider than laterals, canines with a subtle point, premolars with appropriate width.",
+            "failure_heading": "Why factory veneers fail here",
+            "failure_text": "Cheap snap-ons make every tooth the same width and shape. The result reads as obviously artificial on close inspection, especially in photos.",
+            "result_heading": "What this means for you",
+            "result_text": "Your veneers look like a refined version of natural teeth, not a row of identical white tiles."
+          }
+        },
+        "protocol_step_bfxWmY": {
+          "type": "protocol_step",
+          "settings": {
+            "number": "04",
+            "title": "Gumline Design",
+            "description": "How the veneers meet your gums. The protocol designs the gumline contour to follow your natural gum architecture, with appropriate thickness reduction at the margin.",
+            "failure_heading": "The most visible flaw in cheap snap-ons",
+            "failure_text": "The #1 visual giveaway of cheap snap-ons is the visible plastic gap between the veneer edge and the gum. It looks fake from across a room.",
+            "result_heading": "What this means for you",
+            "result_text": "When you smile, no one sees a plastic line between your teeth and your gums."
+          }
+        },
+        "protocol_step_GdVAEj": {
+          "type": "protocol_step",
+          "settings": {
+            "number": "05",
+            "title": "Edge Aesthetics",
+            "description": "Translucency and finish at the biting edge, so teeth read like enamel, not plastic. Natural teeth have a subtle translucency at the edge. The protocol replicates this property in the resin.",
+            "failure_heading": "Where mass-market veneers break down",
+            "failure_text": "Most snap-on veneers use uniform-opacity plastic that reads as obviously fake in any photo where the biting edge is visible.",
+            "result_heading": "What this means for you",
+            "result_text": "Your teeth look like enamel in photos, video calls, and direct sunlight. Not like a costume."
+          }
+        },
+        "protocol_step_H6jgxM": {
+          "type": "protocol_step",
+          "settings": {
+            "number": "06",
+            "title": "Shade Selection",
+            "description": "Color matched to your skin tone and natural tooth shade, in three shade options from natural to brilliant white. The protocol selects the shade that will read as your teeth, refined rather than obviously veneered.",
+            "failure_heading": "How off-the-shelf veneers miss",
+            "failure_text": "Generic veneers come in one shade: aggressive Hollywood white. Against most skin tones, this reads as immediately fake.",
+            "result_heading": "What this means for you",
+            "result_text": "You choose the shade that fits your face. Subtle improvement or noticeable upgrade, both look authentic."
+          }
+        },
+        "protocol_step_Gpkap3": {
+          "type": "protocol_step",
+          "settings": {
+            "number": "07",
+            "title": "Final Verification",
+            "description": "Quality check against the design before shipping. Every veneer is inspected against the original design specifications. If it doesn't match the spec (wrong proportions, wrong shade, gumline off, edge incorrect), it doesn't ship. It's remade.",
+            "failure_heading": "What other companies skip",
+            "failure_text": "Most snap-on companies ship whatever comes off the production line, defects included. Your remake comes out of your refund window, not theirs.",
+            "result_heading": "What this means for you",
+            "result_text": "If your veneers arrive and don't match the design Dr. Turley approved, we remake them. You don't pay for our mistakes."
+          }
+        }
+      },
+      "block_order": [
+        "protocol_step_Wd7HAj",
+        "protocol_step_QgUTCM",
+        "protocol_step_JgVLYL",
+        "protocol_step_bfxWmY",
+        "protocol_step_GdVAEj",
+        "protocol_step_H6jgxM",
+        "protocol_step_Gpkap3"
+      ],
+      "name": "Smile Design Protocol",
       "settings": {
         "eyebrow": "The 7-Point Smile Design Protocol",
         "heading": "Seven design decisions on every case.",
@@ -138,7 +234,7 @@
     "testimonials_nanVhw",
     "lifestyle",
     "founder-notes",
-    "point-protocols",
+    "point_protocols_d4RJji",
     "how-it-works",
     "candidate",
     "kit",
