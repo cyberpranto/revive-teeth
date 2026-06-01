@@ -1,19 +1,57 @@
-<!-- ============== LIFESTYLE BANNER ============== -->
 <section class="lifestyle">
   <div class="lifestyle-img">
-    <img
-      src="{{ 'lifestyle.png' | asset_url }}"
-      alt="A confident smile, every day."
-      width="100"
-      height="100"
-    >
+    {% if section.settings.image != blank %}
+      {{
+        section.settings.image
+        | image_url: width: 2000
+        | image_tag:
+          alt: section.settings.alt_text,
+          loading: 'lazy'
+      }}
+    {% else %}
+      <img
+        src="{{ 'lifestyle.png' | asset_url }}"
+        alt="{{ section.settings.alt_text }}"
+        loading="lazy"
+        width=""
+        height=""
+      >
+    {% endif %}
   </div>
-  <p class="lifestyle-cap">Real smiles. Clinically designed. Built for everyday confidence.</p>
+
+  {% if section.settings.caption != blank %}
+    <p class="lifestyle-cap">
+      {{ section.settings.caption }}
+    </p>
+  {% endif %}
 </section>
 
 {% schema %}
 {
-  "name": "LifeStyle Banner",
-  "settings": []
+  "name": "Lifestyle Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Override Image"
+    },
+    {
+      "type": "text",
+      "id": "alt_text",
+      "label": "Image Alt Text",
+      "default": "A confident smile, every day."
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Caption",
+      "default": "Real smiles. Clinically designed. Built for everyday confidence."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lifestyle Banner"
+    }
+  ]
 }
 {% endschema %}
