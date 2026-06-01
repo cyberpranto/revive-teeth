@@ -309,10 +309,6 @@
         "note": "If your first impressions don't capture enough detail, we send a second kit free. Production doesn't start until we have what we need."
       }
     },
-    "trust-badges": {
-      "type": "trust-badges",
-      "settings": {}
-    },
     "comparison_LDCEVq": {
       "type": "comparison",
       "blocks": {
@@ -346,6 +342,63 @@
         "subheading": "Side by side, you can see the difference between cheaply manufactured plastic and a clinically designed appliance built to a 7-point protocol."
       }
     },
+    "trust_badges_MtPFLB": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_LMam9j": {
+          "type": "badge",
+          "settings": {
+            "icon": "dentist",
+            "label": "Dentist-Designed"
+          }
+        },
+        "badge_LPkdrK": {
+          "type": "badge",
+          "settings": {
+            "icon": "moneyback",
+            "label": "30-Day Money-Back"
+          }
+        },
+        "badge_m9Tbc6": {
+          "type": "badge",
+          "settings": {
+            "icon": "lifespan",
+            "label": "3–5 Year Lifespan"
+          }
+        },
+        "badge_mRBJQU": {
+          "type": "badge",
+          "settings": {
+            "icon": "bpa",
+            "label": "BPA-Free Dental Resin"
+          }
+        },
+        "badge_PXfm36": {
+          "type": "badge",
+          "settings": {
+            "icon": "shipping",
+            "label": "Ships Free Both Ways"
+          }
+        },
+        "badge_zct8tz": {
+          "type": "badge",
+          "settings": {
+            "icon": "remake",
+            "label": "Free Remakes Until It's Right"
+          }
+        }
+      },
+      "block_order": [
+        "badge_LMam9j",
+        "badge_LPkdrK",
+        "badge_m9Tbc6",
+        "badge_mRBJQU",
+        "badge_PXfm36",
+        "badge_zct8tz"
+      ],
+      "name": "Trust Badges",
+      "settings": {}
+    },
     "faq": {
       "type": "faq",
       "settings": {
@@ -368,7 +421,7 @@
     "candidate",
     "kit_LmrqJg",
     "comparison_LDCEVq",
-    "trust-badges",
+    "trust_badges_MtPFLB",
     "faq"
   ]
 }
