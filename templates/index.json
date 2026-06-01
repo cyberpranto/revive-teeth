@@ -309,17 +309,42 @@
         "note": "If your first impressions don't capture enough detail, we send a second kit free. Production doesn't start until we have what we need."
       }
     },
-    "comparison": {
+    "trust-badges": {
+      "type": "trust-badges",
+      "settings": {}
+    },
+    "comparison_LDCEVq": {
       "type": "comparison",
+      "blocks": {
+        "comparison_9XYicK": {
+          "type": "comparison",
+          "settings": {
+            "highlight": false,
+            "tag": "What you find elsewhere",
+            "title": "Generic plastic, one-size impression",
+            "items": "One mold shape across all teeth\nVisible plastic gap at the gumline\nZero individual tooth shaping\nShips in 3 days because no one designs it"
+          }
+        },
+        "comparison_bn7jPM": {
+          "type": "comparison",
+          "settings": {
+            "highlight": true,
+            "tag": "What you get from Revive",
+            "title": "Custom-fitted, hand-finished, clinically designed",
+            "items": "~0.5mm thickness, individually adjusted per tooth\nCustom gumline contour designed to your impressions\nIndividual proportions and translucent edges, tooth by tooth\n7 clinical design checkpoints, 14–21 days of design time per case"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_9XYicK",
+        "comparison_bn7jPM"
+      ],
+      "name": "Comparison Section",
       "settings": {
         "eyebrow": "What makes it different",
         "heading": "The cheap snap-on you almost bought, next to the one you should.",
         "subheading": "Side by side, you can see the difference between cheaply manufactured plastic and a clinically designed appliance built to a 7-point protocol."
       }
-    },
-    "trust-badges": {
-      "type": "trust-badges",
-      "settings": {}
     },
     "faq": {
       "type": "faq",
@@ -342,7 +367,7 @@
     "how_it_works_g44taT",
     "candidate",
     "kit_LmrqJg",
-    "comparison",
+    "comparison_LDCEVq",
     "trust-badges",
     "faq"
   ]
