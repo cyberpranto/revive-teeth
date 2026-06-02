@@ -10,18 +10,16 @@
       2. Preload only the critical font variant (base weight)
       3. Additional variants load on-demand via @font-face
     {% endcomment %}
-    {% unless settings.type_primary_font.system? %}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {% comment %} {% unless settings.type_primary_font.system? %} {% endcomment %}
+      {% comment %} <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin> {% endcomment %}
 
       {% comment %} Preload the base font variant for initial page render {% endcomment %}
-      {{ settings.type_primary_font | font_url | preload_tag: as: 'font', crossorigin: 'anonymous' }}
-    {% endunless %}
-
+      {% comment %} {{ settings.type_primary_font | font_url | preload_tag: as: 'font', crossorigin: 'anonymous' }} {% endcomment %}
+    {% comment %} {% endunless %} {% endcomment %}
 
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'base-1.css' | asset_url | stylesheet_tag: preload: true }}
-    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
@@ -35,13 +33,10 @@
 
     {% sections 'footer-group' %}
 
-
-
     {% render 'quiz-modal' %}
     {% render 'exit-intent-modal' %}
 
     {% render 'sticky-bars' %}
-
 
     <script src="{{ 'app.js' | asset_url }}" defer></script>
   </body>

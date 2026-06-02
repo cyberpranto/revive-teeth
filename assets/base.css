@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("./Inter-Regular.ttf") format("ttf");
+  src: url("{{'Inter-Regular.ttf' | asset_url }}") format("truetype");
 }
 
 /* cyrillic-ext */
@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("./Inter-Medium.ttf") format("ttf");
+  src: url("{{ 'Inter-Medium.ttf' | asset_url }}") format("truetype");
 }
 
 /* cyrillic-ext */
@@ -22,7 +22,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("./Inter-SemiBold.ttf") format("ttf");
+  src: url("{{ 'Inter-SemiBold.ttf' | asset_url }}") format("truetype");
 }
 
 /* cyrillic-ext */
@@ -31,7 +31,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("InterTight-Regular.ttf") format("ttf");
+  src: url("{{ 'InterTight-Regular.ttf ' | asset_url }}") format("truetype");
 }
 
 /* cyrillic-ext */
@@ -40,7 +40,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("./InterTight-Medium.ttf") format("ttf");
+  src: url(" {{ 'InterTight-Medium.ttf' | asset_url }}") format("truetype");
 }
 
 /* cyrillic-ext */
@@ -49,7 +49,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("./InterTight-SemiBold.ttf") format("ttf");
+  src: url("{{ 'InterTight-SemiBold.ttf' | asset_url }}") format("truetype");
 }
 
 /* cyrillic-ext */
@@ -58,7 +58,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("./InterTight-Bold.ttf") format("ttf");
+  src: url(" {{ 'InterTight-Bold.ttf' | asset_url }}") format("truetype");
 }
 
 /* vietnamese */
@@ -67,7 +67,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("./Newsreader-Italic.ttf") format("ttf");
+  src: url("{{ 'Newsreader-Italic.ttf ' | asset_url }}") format("truetype");
 }
 
 /* vietnamese */
@@ -76,5 +76,5 @@
   font-style: italic;
   font-weight: 500;
   font-display: swap;
-  src: url("./Newsreader-MediumItalic.ttf") format("ttf");
+  src: url("{{ 'Newsreader-MediumItalic.ttf' | asset_url }}") format("truetype");
 }

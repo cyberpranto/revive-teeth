@@ -79,23 +79,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 /* ============== CART BTN ============== */
-function bumpCart() {
-  const el = document.getElementById("cartCount");
-  el.textContent = (parseInt(el.textContent || "0", 10) + 1).toString();
-}
-document.getElementById("cta").addEventListener("click", bumpCart);
-document.getElementById("sbCta").addEventListener("click", () => {
-  document.querySelector("#top").scrollIntoView({ behavior: "smooth" });
-  setTimeout(() => {
-    const cta = document.getElementById("cta");
-    cta.classList.remove("pulsing");
-    void cta.offsetWidth;
-    cta.classList.add("pulsing");
-  }, 600);
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  function bumpCart() {
+    const el = document.getElementById("cartCount");
+    el.textContent = (parseInt(el.textContent || "0", 10) + 1).toString();
+  }
+  document.getElementById("cta").addEventListener("click", bumpCart());
+  document.getElementById("sbCta").addEventListener("click", () => {
+    document.querySelector("#top").scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      const cta = document.getElementById("cta");
+      cta.classList.remove("pulsing");
+      void cta.offsetWidth;
+      cta.classList.add("pulsing");
+    }, 600);
+  });
+  document.getElementById("sbInfo").addEventListener("click", () => {
+    document.querySelector("#top").scrollIntoView({ behavior: "smooth" });
+  });
+
 });
-document.getElementById("sbInfo").addEventListener("click", () => {
-  document.querySelector("#top").scrollIntoView({ behavior: "smooth" });
-});
+
 /* ============== NAV SCROLL ============== */
 const nav = document.getElementById("nav");
 window.addEventListener("scroll", () => {
