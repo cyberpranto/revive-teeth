@@ -100,22 +100,9 @@
         "copyright": "© 2026 Revive Teeth. All rights reserved.",
         "disclaimer": "<p>Revive Veneers are custom cosmetic snap-on appliances. They are not a substitute for professional dental care. Consult a licensed dentist for any dental health concerns. Individual results vary. Materials are dental-grade resin used in cosmetic appliances.</p>"
       }
-    },
-    "footer": {
-      "type": "footer-new",
-      "settings": {
-        "tagline": "",
-        "payment_text": "",
-        "newsletter_heading": "",
-        "newsletter_form": "",
-        "newsletter_note": "",
-        "copyright": "",
-        "disclaimer": ""
-      }
     }
   },
   "order": [
-    "footer_new_gAYzTK",
-    "footer"
+    "footer_new_gAYzTK"
   ]
 }
