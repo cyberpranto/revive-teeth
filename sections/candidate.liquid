@@ -1,88 +1,52 @@
-<!-- ============== SECTION 6 — CANDIDATE ============== -->
 <section id="candidate">
   <div class="wrap">
+
     <div class="sect-head">
-      <div class="eyebrow">Are You a Candidate?</div>
-      <h2 class="display"style="margin-top:14px">
-        Revive Veneers work for most people. They're not right for everyone.
+      <div class="eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+
+      <h2 class="display" style="margin-top:14px">
+        {{ section.settings.heading }}
       </h2>
+
       <p class="sub">
-        Custom snap-on veneers enhance the appearance of healthy teeth. They aren't a replacement for permanent dental
-        work, and they're not the right solution for every dental situation. Here's an honest breakdown of who Revive
-        Veneers work for.
+        {{ section.settings.description }}
       </p>
     </div>
+
     <div class="cand-grid">
-      <div class="ccard ideal">
-        <div class="ctitle">
-          <span class="cdot"> </span>
-          Ideal candidates
-        </div>
-        <ul>
-          <li>Generally healthy teeth and gums</li>
-          <li>Want to improve the appearance of stained, slightly gapped, or worn teeth</li>
-          <li>All upper or all lower teeth present</li>
-          <li>No active gum disease or recent major dental work</li>
-        </ul>
-      </div>
-      <div class="ccard good">
-        <div class="ctitle">
-          <span class="cdot"> </span>
-          Good candidates, extended timeline
-        </div>
-        <ul>
-          <li>Small to medium gaps in teeth</li>
-          <li>Minor bite issues (slight overbite or underbite)</li>
-          <li>Worn or short teeth from grinding</li>
-          <li>One or two missing teeth not at the end of the arch</li>
-        </ul>
-      </div>
-      <div
-        class="ccard consult"
-      >
-        <div
-          class="ctitle"
-        >
-          <span
-            class="cdot"
-          >
-          </span>
-          Consult before ordering
-        </div>
-        <ul>
-          <li>Active gum disease or significant gum recession</li>
-          <li>Severe crossbite or bite alignment issues</li>
-          <li>Recent major dental work within the last 3 months</li>
-          <li>Multiple missing teeth or teeth missing at end of arch</li>
-        </ul>
-      </div>
-      <div
-        class="ccard not"
-      >
-        <div
-          class="ctitle"
-        >
-          <span
-            class="cdot"
-          >
-          </span>
-          Not a candidate
-        </div>
-        <ul>
-          <li>No remaining teeth in the arch you want covered</li>
-          <li>Currently wearing full dentures</li>
-          <li>Active oral infection or untreated periodontal disease</li>
-        </ul>
-      </div>
+
+      {% for block in section.blocks %}
+        {% if block.type == 'candidate_group' %}
+          <div class="ccard {{ block.settings.card_class }}">
+            <div class="ctitle">
+              <span class="cdot"></span>
+              {{ block.settings.title }}
+            </div>
+
+            <ul>
+              {% assign items = block.settings.items | split: '|' %}
+
+              {% for item in items %}
+                {% if item != blank %}
+                  <li>{{ item }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+
     </div>
-    <div
-      class="cand-cta-row"
-    >
+
+    <div class="cand-cta-row">
       <button
         class="btn-outline"
         id="openQuiz"
       >
-        Take the 30-second Smile Assessment
+        {{ section.settings.button_text }}
+
         <svg
           width="14"
           height="14"
@@ -91,25 +55,140 @@
           stroke="currentColor"
           stroke-width="2"
         >
-          <path
-              d="M5 12h14M13 6l6 6-6 6">
-              </path>
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
         </svg>
       </button>
     </div>
-    <p
-      class="cand-disclaimer"
-    >
-      Revive Veneers are cosmetic appliances, not medical devices. They enhance the appearance of your smile but do not
-      treat dental conditions. Dr. Brandon Turley, DDS, recommends consulting with a licensed dentist for any underlying
-      dental health concerns before ordering.
+
+    <p class="cand-disclaimer">
+      {{ section.settings.disclaimer }}
     </p>
+
   </div>
 </section>
 
+
 {% schema %}
+
+
 {
- "name":"Candidate",
- "settings": []
+  "name": "Candidate Section",
+  "class": "candidate-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Are You a Candidate?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Revive Veneers work for most people. They're not right for everyone."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Custom snap-on veneers enhance the appearance of healthy teeth. They aren't a replacement for permanent dental work, and they're not the right solution for every dental situation. Here's an honest breakdown of who Revive Veneers work for."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Take the 30-second Smile Assessment"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Revive Veneers are cosmetic appliances, not medical devices. They enhance the appearance of your smile but do not treat dental conditions. Dr. Brandon Turley, DDS, recommends consulting with a licensed dentist for any underlying dental health concerns before ordering."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "candidate_group",
+      "name": "Candidate Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title"
+        },
+        {
+          "type": "select",
+          "id": "card_class",
+          "label": "Card Style",
+          "options": [
+            {
+              "value": "ideal",
+              "label": "Ideal"
+            },
+            {
+              "value": "good",
+              "label": "Good"
+            },
+            {
+              "value": "consult",
+              "label": "Consult"
+            },
+            {
+              "value": "not",
+              "label": "Not Candidate"
+            }
+          ],
+          "default": "ideal"
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "List Items (Separate with |)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Candidate Section",
+      "blocks": [
+        {
+          "type": "candidate_group",
+          "settings": {
+            "title": "Ideal candidates",
+            "card_class": "ideal",
+            "items": "Generally healthy teeth and gums|Want to improve the appearance of stained, slightly gapped, or worn teeth|All upper or all lower teeth present|No active gum disease or recent major dental work"
+          }
+        },
+        {
+          "type": "candidate_group",
+          "settings": {
+            "title": "Good candidates, extended timeline",
+            "card_class": "good",
+            "items": "Small to medium gaps in teeth|Minor bite issues (slight overbite or underbite)|Worn or short teeth from grinding|One or two missing teeth not at the end of the arch"
+          }
+        },
+        {
+          "type": "candidate_group",
+          "settings": {
+            "title": "Consult before ordering",
+            "card_class": "consult",
+            "items": "Active gum disease or significant gum recession|Severe crossbite or bite alignment issues|Recent major dental work within the last 3 months|Multiple missing teeth or teeth missing at end of arch"
+          }
+        },
+        {
+          "type": "candidate_group",
+          "settings": {
+            "title": "Not a candidate",
+            "card_class": "not",
+            "items": "No remaining teeth in the arch you want covered|Currently wearing full dentures|Active oral infection or untreated periodontal disease"
+          }
+        }
+      ]
+    }
+  ]
 }
+
+
+
 {% endschema %}
