@@ -11,12 +11,14 @@
   "type": "header",
   "name": "t:general.header",
   "sections": {
+    "top_strip": {
+      "type": "header-top-strip",
+      "settings": {}
+    },
     "header": {
       "type": "header-new",
       "settings": {}
     }
   },
-  "order": [
-    "header"
-  ],
+  "order": ["top_strip", "header"]
 }
