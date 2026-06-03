@@ -2251,6 +2251,11 @@ footer {
   font-weight: 600;
 }
 
+.newsletter-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #0f7b0f;
+}
 .foot-tagline-small {
   font-size: 12px;
   color: var(--ink-3);

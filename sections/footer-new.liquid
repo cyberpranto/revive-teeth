@@ -9,7 +9,8 @@
               src="{{ section.settings.logo | image_url }}"
               alt="{{ shop.name }}"
               width="200"
-              height="80">
+              height="80"
+            >
           {% endif %}
         </div>
 
@@ -47,7 +48,26 @@
           {{ section.settings.newsletter_heading }}
         </h5>
 
-        {{ section.settings.newsletter_form }}
+        <form class="sub-input" id="newsletter-form">
+          <input
+            type="email"
+            id="newsletter-email"
+            placeholder="{{ section.settings.placeholder }}"
+            required
+          >
+
+          <button
+            type="submit"
+            id="newsletter-submit"
+          >
+            {{ section.settings.button_text }}
+          </button>
+        </form>
+
+        <div
+          id="newsletter-message"
+          class="newsletter-message"
+        ></div>
 
         <div class="foot-tagline-small">
           {{ section.settings.newsletter_note }}
@@ -77,146 +97,239 @@
   </div>
 </footer>
 
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const form =
+    document.getElementById('newsletter-form');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+
+    e.preventDefault();
+
+    const email =
+      document.getElementById('newsletter-email').value;
+
+    const button =
+      document.getElementById('newsletter-submit');
+
+    const message =
+      document.getElementById('newsletter-message');
+
+    button.disabled = true;
+    button.textContent = 'Subscribing...';
+
+    try {
+
+      await fetch(
+        'https://manage.kmail-lists.com/ajax/subscriptions/subscribe',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type':
+              'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            g: '{{ section.settings.klaviyo_list_id }}',
+            email: email
+          })
+        }
+      );
+
+      message.textContent =
+        'Thanks for subscribing!';
+
+      form.reset();
+
+      button.textContent =
+        'Subscribed ✓';
+
+    } catch(error) {
+
+      console.error(error);
+
+      message.textContent =
+        'Something went wrong.';
+
+      button.textContent =
+        '{{ section.settings.button_text }}';
+
+    }
+
+    button.disabled = false;
+
+  });
+
+});
+
+</script>
+
 {% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo"
-      },
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
 
-      {
-        "type": "text",
-        "id": "tagline",
-        "label": "Tagline"
-      },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline"
+    },
 
-      {
-        "type": "richtext",
-        "id": "payment_text",
-        "label": "Payment Text"
-      },
+    {
+      "type": "richtext",
+      "id": "payment_text",
+      "label": "Payment Text"
+    },
 
-      {
-        "type": "text",
-        "id": "newsletter_heading",
-        "label": "Newsletter Heading"
-      }, {
-        "type": "liquid",
-        "id": "newsletter_form",
-        "label": "Newsletter Form"
-      }, {
-        "type": "text",
-        "id": "newsletter_note",
-        "label": "Newsletter Note"
-      }, {
-        "type": "text",
-        "id": "copyright",
-        "label": "Copyright"
-      }, {
-        "type": "richtext",
-        "id": "disclaimer",
-        "label": "Disclaimer"
-      }
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter Heading"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "you@example.com"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo List ID",
+      "info": "Please set here your klavio list id"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_note",
+      "label": "Newsletter Note"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer"
+    }
+  ],
 
-    ],
-
-    "blocks": [
-      {
-        "type": "support_link",
-        "name": "Support Link",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          }, {
-            "type": "url",
-            "id": "url",
-            "label": "URL"
-          }
-        ]
-      }, {
-        "type": "legal_link",
-        "name": "Legal Link",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          }, {
-            "type": "url",
-            "id": "url",
-            "label": "URL"
-          }
-
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Footer",
-        "settings": {
-          "tagline": "Cosmetic dentistry without the dental chair.",
-          "newsletter_heading": "Get smile design tips from Dr. Turley",
-          "newsletter_note": "No spam. Unsubscribe anytime.",
-          "copyright": "© 2026 Revive Teeth. All rights reserved."
+  "blocks": [
+    {
+      "type": "support_link",
+      "name": "Support Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
         },
-        "blocks": [
-          {
-            "type": "support_link",
-            "settings": {
-              "title": "Track Your Order"
-            }
-          },
-          {
-            "type": "support_link",
-            "settings": {
-              "title": "Contact Support"
-            }
-          },
-          {
-            "type": "support_link",
-            "settings": {
-              "title": "FAQ"
-            }
-          },
-          {
-            "type": "support_link",
-            "settings": {
-              "title": "Returns & Remakes"
-            }
-          }, {
-            "type": "support_link",
-            "settings": {
-              "title": "Am I a Candidate?"
-            }
-          }, {
-            "type": "legal_link",
-            "settings": {
-              "title": "Privacy Policy"
-            }
-          }, {
-            "type": "legal_link",
-            "settings": {
-              "title": "Terms of Service"
-            }
-          }, {
-            "type": "legal_link",
-            "settings": {
-              "title": "Return Policy"
-            }
-          }, {
-            "type": "legal_link",
-            "settings": {
-              "title": "Shipping Policy"
-            }
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    },
+    {
+      "type": "legal_link",
+      "name": "Legal Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "settings": {
+        "tagline": "Cosmetic dentistry without the dental chair.",
+        "newsletter_heading": "Get smile design tips from Dr. Turley",
+        "newsletter_note": "No spam. Unsubscribe anytime.",
+        "copyright": "© 2026 Revive Teeth. All rights reserved."
+      },
+      "blocks": [
+        {
+          "type": "support_link",
+          "settings": {
+            "title": "Track Your Order"
           }
-        ]
-      }
-
-    ]
-  }
+        },
+        {
+          "type": "support_link",
+          "settings": {
+            "title": "Contact Support"
+          }
+        },
+        {
+          "type": "support_link",
+          "settings": {
+            "title": "FAQ"
+          }
+        },
+        {
+          "type": "support_link",
+          "settings": {
+            "title": "Returns & Remakes"
+          }
+        },
+        {
+          "type": "support_link",
+          "settings": {
+            "title": "Am I a Candidate?"
+          }
+        },
+        {
+          "type": "legal_link",
+          "settings": {
+            "title": "Privacy Policy"
+          }
+        },
+        {
+          "type": "legal_link",
+          "settings": {
+            "title": "Terms of Service"
+          }
+        },
+        {
+          "type": "legal_link",
+          "settings": {
+            "title": "Return Policy"
+          }
+        },
+        {
+          "type": "legal_link",
+          "settings": {
+            "title": "Shipping Policy"
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
