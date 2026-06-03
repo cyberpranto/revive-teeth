@@ -1,5 +1,5 @@
-{% comment %} {% assign product = all_products[section.settings.product] %}
-{% assign variant = product.selected_or_first_available_variant %} {% endcomment %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+
 
 <div
   class="sticky-bar"
@@ -14,13 +14,13 @@
       id="sbInfo"
       type="button"
     >
-      <span class="l1" id="sbL1">
-        {{ product.title }}
-        ·
-        {{ product.selected_or_first_available_variant.title }}
-        ·
-        {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}
-      </span>
+    <span id="sbL1">
+      {{ product.title }}
+      ·
+      {{ current_variant.title }}
+      ·
+      {{ current_variant.price | money_without_trailing_zeros }}
+    </span>
 
       <span class="l2" id="sbL2">
         Paid at checkout · 3-pay plan available
@@ -30,7 +30,7 @@
     <button
       class="sb-cta"
       id="sbCta"
-      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      data-variant-id="{{ current_variant.id }}"
     >
       Add To Cart
     </button>

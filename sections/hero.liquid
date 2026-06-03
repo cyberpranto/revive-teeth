@@ -7,10 +7,33 @@
 
 {% assign current_variant = product.selected_or_first_available_variant %}
 
+<style>
+  .gallery.desk{
+    display: block;
+  }
+  .mobile-version-gallery {
+    display: none;
+    margin-bottom: 30px;
+  }
+
+
+  @media screen and (max-width: 980px) {
+    .gallery.desk{
+    display: none;
+  }
+  .mobile-version-gallery {
+    display: block;
+  }
+
+    
+  }
+</style>
+
+
 <section class="hero" style="padding-top:48px">
   <div class="wrap hero-grid">
     <!-- < !-- Gallery -->
-    <div class="gallery">
+    <div class="gallery desk">
       <div class="gallery-main">
         <img
           id="galImg"
@@ -54,6 +77,30 @@
         {{ section.settings.description }}
       </p>
       <hr>
+      <div class="mobile-version-gallery">
+        <div class="gallery">
+          <div class="gallery-main">
+            <img
+              id="galImg"
+              src="{{ product.featured_image | image_url: width: 1200 }}"
+              alt="{{ product.title }}"
+              width="1200"
+              height="1200">
+          </div>
+    
+          <div class="thumbs">
+            {% for image in product.images %}
+              <button class="thumb {% if forloop.first %}active{% endif %}" data-image="{{ image | image_url: width: 1200 }}">
+                <img
+                  src="{{ image | image_url: width: 200 }}"
+                  alt="{{ image.alt }}"
+                  width="200"
+                  height="200">
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
       <div class="config-label">
         {{ section.settings.config_title }}
         <span class="req">· Choose one
@@ -126,9 +173,7 @@
               </div>
               {% case variant.title %}
                 {% when 'Both Arches' %}
-                  <div class="save">
-                    Save $997 vs. buying separately
-                  </div>
+                  <div class="save">Save $997 vs. buying separately</div>
               {% endcase %}
             </div>
           </button>
@@ -141,11 +186,7 @@
         <div class="price-meta">Paid at checkout</div>
         <div class="price-fine">Less than $3 a day over a 2-year lifespan</div>
         <div class="price-link">
-          {% comment %} 
-                                    <a href="mailto:hello@reviveteeth.com?subject=Revive%20Veneers%20%E2%80%94%20Split%20payment%20request"
-                                    >Need to split into 3 payments? Contact us → 
-                                    </a>
-                              {% endcomment %}
+         
           <a href="{{ section.settings.payment_link }}">
             {{ section.settings.payment_text }}
           </a>
@@ -155,87 +196,6 @@
         <span class="pulse"></span>
         {{ section.settings.stock_text }}
       </div>
-
-      {% comment %} 
-                        SHOPIFY 
-                        DEVELOPER 
-                        NOTE: 
-                        This 
-                        button 
-                        must 
-                        be 
-                        wired 
-                        to 
-                        push 
-                        the 
-                        selected 
-                        variant 
-                        ID 
-                        to 
-                        the 
-                        Shopify 
-                        cart. 
-                        The 
-                        currently 
-                        selected 
-                        configuration 
-                        is 
-                        tracked 
-                        via 
-                        the 
-                        `current` 
-                        variable 
-                        in 
-                        the 
-                        JavaScript 
-                        (values:"upper" 
-                        ,"lower" 
-                        , 
-                        or"both" 
-                        ). 
-                        Map 
-                        each 
-                        value 
-                        to 
-                        its 
-                        corresponding 
-                        Shopify 
-                        variant 
-                        ID: 
-                        upper 
-                        → 
-                        $1, 
-                        497 
-                        variant, 
-                        lower 
-                        → 
-                        $1, 
-                        497 
-                        variant, 
-                        both 
-                        → 
-                        $1, 
-                        997 
-                        variant. 
-                        The 
-                        `bumpCart` 
-                        function 
-                        currently 
-                        only 
-                        updates 
-                        the 
-                        cart 
-                        count 
-                        display 
-                        — 
-                        replace 
-                        it 
-                        with 
-                        actual 
-                        Shopify 
-                        cart 
-                        logic.
-                  {% endcomment %}
       <button
         class="cta"
         id="cta"
@@ -298,7 +258,8 @@
   </div>
 </section>
 
-{% render 'sticky-bars', product: product %}
+{% render 'sticky-bars'
+  , product: product %}
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -334,7 +295,7 @@
     const ctaPrice = document.getElementById('ctaPrice');
     const cta = document.getElementById('cta');
   
-   function selectVariant(option) {
+    function selectVariant(option) {
   
   options.forEach((btn) => btn.classList.remove('selected'));
   
@@ -347,10 +308,26 @@
   
   cta.dataset.variantId = option.dataset.variantId;
   
-  document.getElementById('sbL1').textContent = `Revive Veneers · ${option.querySelector('.opt-name').textContent} · ${formatMoney(price)}`;
+  document.getElementById('sbL1').textContent =
+  `Revive Veneers · ${option.querySelector('.opt-name').textContent} · ${formatMoney(price)}`;
   
-  document.getElementById('sbCta').dataset.variantId = option.dataset.variantId;
-      }
+  document.getElementById('sbCta').dataset.variantId =
+  option.dataset.variantId;
+  
+  } // <-- এখানে function শেষ
+
+  options.forEach((option) => {
+  option.addEventListener('click', () => {
+    selectVariant(option);
+  });
+});
+
+const defaultOption = document.querySelector('.opt.selected') || options[0];
+
+if (defaultOption) {
+  selectVariant(defaultOption);
+}
+
   
     cta.addEventListener('click', async () => {
       const variantId = cta.dataset.variantId;
@@ -384,7 +361,6 @@
     });
   });
 </script>
-
 
 {% schema %}
   {
