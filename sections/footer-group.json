@@ -18,63 +18,63 @@
           "type": "support_link",
           "settings": {
             "title": "Track Your Order",
-            "url": ""
+            "url": "#"
           }
         },
         "support_link_wCyMj6": {
           "type": "support_link",
           "settings": {
             "title": "Contact Support",
-            "url": ""
+            "url": "#"
           }
         },
         "support_link_ccwdLY": {
           "type": "support_link",
           "settings": {
             "title": "FAQ",
-            "url": ""
+            "url": "#"
           }
         },
         "support_link_ReB9pe": {
           "type": "support_link",
           "settings": {
             "title": "Returns & Remakes",
-            "url": ""
+            "url": "#"
           }
         },
         "support_link_qJ3Gip": {
           "type": "support_link",
           "settings": {
             "title": "Am I a Candidate?",
-            "url": ""
+            "url": "#"
           }
         },
         "legal_link_RXx4Mk": {
           "type": "legal_link",
           "settings": {
             "title": "Privacy Policy",
-            "url": ""
+            "url": "#"
           }
         },
         "legal_link_VW8c9R": {
           "type": "legal_link",
           "settings": {
             "title": "Terms of Service",
-            "url": ""
+            "url": "#"
           }
         },
         "legal_link_KqgDkc": {
           "type": "legal_link",
           "settings": {
             "title": "Return Policy",
-            "url": ""
+            "url": "#"
           }
         },
         "legal_link_cPiegU": {
           "type": "legal_link",
           "settings": {
             "title": "Shipping Policy",
-            "url": ""
+            "url": "#"
           }
         }
       },

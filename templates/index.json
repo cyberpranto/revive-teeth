@@ -102,7 +102,7 @@
         "heading": "The snap-on veneer your dentist would actually recommend.",
         "description": "Custom-fitted to your impressions. Designed against a 7-point clinical protocol.",
         "config_title": "Configuration",
-        "payment_link": "",
+        "payment_link": "#",
         "payment_text": "Need to split into 3 payments? Contact us →",
         "stock_text": "In stock · Ships your impression kit within 48 hours",
         "button_text": "Add To Cart",
@@ -116,7 +116,7 @@
         "eyebrow": "Why we built this",
         "heading": "I'm Dr. Brandon Turley. I want to tell you something most people in my profession won't.",
         "description": "A 90-second note from the founder. Why traditional veneers fail most people, and what to do instead.",
-        "video_url": "",
+        "video_url": "https://youtu.be/wwIt5ZvROrs?si=cRBoNfW_of_9Ncro",
         "caption": "Dr. Brandon Turley, DDS · Practicing cosmetic dentist · 90 seconds"
       }
     },
@@ -129,7 +129,7 @@
             "tag": "Confidence",
             "quote": "I didn't realize how much I was hiding it.",
             "meta": "Customer Name, City · Month YYYY",
-            "video_url": ""
+            "video_url": "#"
           }
         },
         "testimonial_ePGwhi": {
@@ -138,7 +138,7 @@
             "tag": "Transformation",
             "quote": "\"It looks like my actual teeth, but better.\"",
             "meta": "Customer Name, City · Month YYYY",
-            "video_url": ""
+            "video_url": "#"
           }
         },
         "testimonial_r3xMMF": {
@@ -147,7 +147,7 @@
             "tag": "The Process",
             "quote": "\"The impression took five minutes.\"",
             "meta": "Customer Name, City · Month YYYY",
-            "video_url": ""
+            "video_url": "#"
           }
         }
       },
