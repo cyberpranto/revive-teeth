@@ -9,15 +9,77 @@
  */
 {
   "sections": {
-    "hero_qUJY44": {
+    "hero_jEkMen": {
       "type": "hero",
-      "name": "Hero Product",
+      "blocks": {
+        "payment_BkfJEF": {
+          "type": "payment",
+          "settings": {
+            "label": "VISA"
+          }
+        },
+        "payment_tyyQFk": {
+          "type": "payment",
+          "settings": {
+            "label": "Mastercard"
+          }
+        },
+        "payment_gHzha4": {
+          "type": "payment",
+          "settings": {
+            "label": "AMEX"
+          }
+        },
+        "payment_bmdf6g": {
+          "type": "payment",
+          "settings": {
+            "label": "Apple Pay"
+          }
+        },
+        "credibility_XKUz63": {
+          "type": "credibility",
+          "settings": {
+            "icon": "<svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            stroke-width=\"2\"\n          >\n            <rect\n                x=\"4\"\n                y=\"11\"\n                width=\"16\"\n                height=\"10\"\n                rx=\"2\">\n                </rect>\n                    <path\n                        d=\"M8 11V7a4 4 0 0 1 8 0v4\">\n                        </path>\n          </svg>",
+            "text": "Secure SSL Checkout"
+          }
+        },
+        "credibility_GYdiVW": {
+          "type": "credibility",
+          "settings": {
+            "icon": "<svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            stroke-width=\"2\"\n          >\n            <circle\n                cx=\"12\"\n                cy=\"8\"\n                r=\"4\">\n                </circle>\n                    <path\n                        d=\"M4 21c0-4 4-6 8-6s8 2 8 6\">\n                        </path>\n          </svg>",
+            "text": "Dentist-designed"
+          }
+        },
+        "credibility_7MkGzf": {
+          "type": "credibility",
+          "settings": {
+            "icon": "",
+            "text": "30-day money-back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "payment_BkfJEF",
+        "payment_tyyQFk",
+        "payment_gHzha4",
+        "payment_bmdf6g",
+        "credibility_XKUz63",
+        "credibility_GYdiVW",
+        "credibility_7MkGzf"
+      ],
+      "name": "Hero Banner",
       "settings": {
         "product": "revive-veneers",
         "eyebrow": "Designed by Dr. Brandon Turley, DDS",
         "heading": "The snap-on veneer your dentist would actually recommend.",
-        "description": "Custom-fitted to your impressions. Designed against a 7-point clinical protocol. For people who want a refined smile without the $15,000 dental chair commitment.",
-        "button_text": "Add To Cart"
+        "description": "Custom-fitted to your impressions. Designed against a 7-point clinical protocol.",
+        "config_title": "Configuration",
+        "payment_link": "",
+        "payment_text": "Need to split into 3 payments? Contact us →",
+        "stock_text": "In stock · Ships your impression kit within 48 hours",
+        "button_text": "Add To Cart",
+        "guarantee_title": "30-Day Money-Back Guarantee",
+        "guarantee_text": "Free remakes · Full refund if it isn't right"
       }
     },
     "founder-video": {
@@ -523,7 +585,7 @@
     }
   },
   "order": [
-    "hero_qUJY44",
+    "hero_jEkMen",
     "founder-video",
     "testimonials_nanVhw",
     "lifestyle",
