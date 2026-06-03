@@ -17,17 +17,17 @@
           src="{{ product.featured_image | image_url: width: 1200 }}"
           alt="{{ product.title }}"
           width="1200"
-          height="1200"
-        >
+          height="1200">
       </div>
 
       <div class="thumbs">
         {% for image in product.images %}
-          <button
-            class="thumb {% if forloop.first %}active{% endif %}"
-            data-image="{{ image | image_url: width: 1200 }}"
-          >
-            <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt }}" width="200" height="200">
+          <button class="thumb {% if forloop.first %}active{% endif %}" data-image="{{ image | image_url: width: 1200 }}">
+            <img
+              src="{{ image | image_url: width: 200 }}"
+              alt="{{ image.alt }}"
+              width="200"
+              height="200">
           </button>
         {% endfor %}
       </div>
@@ -56,15 +56,15 @@
       <hr>
       <div class="config-label">
         {{ section.settings.config_title }}
-        <span class="req">· Choose one </span>
+        <span class="req">· Choose one
+        </span>
       </div>
       <div class="config" id="config">
         {% for variant in product.variants %}
           <button
             class="opt {% if forloop.first %}selected{% endif %}"
             data-variant-id="{{ variant.id }}"
-            data-price="{{ variant.price }}"
-          >
+            data-price="{{ variant.price }}">
             {% case variant.title %}
               {% when 'Upper Arch' %}
                 <!-- Upper SVG -->
@@ -76,12 +76,9 @@
                   stroke-width="2.2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 22 C 8 6, 52 6, 56 22">
-                  </path>
-                  <path d="M12 12 L12 19 M20 9 L20 18 M30 7.5 L30 17.5 M40 9 L40 18 M48 12 L48 19" stroke-width="1.6">
-                  </path>
+                  aria-hidden="true">
+                  <path d="M4 22 C 8 6, 52 6, 56 22"></path>
+                  <path d="M12 12 L12 19 M20 9 L20 18 M30 7.5 L30 17.5 M40 9 L40 18 M48 12 L48 19" stroke-width="1.6"></path>
                 </svg>
 
               {% when 'Lower Arch' %}
@@ -95,12 +92,9 @@
                   stroke-width="2.2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 10 C 8 26, 52 26, 56 10">
-                  </path>
-                  <path d="M12 20 L12 13 M20 23 L20 14 M30 24.5 L30 14.5 M40 23 L40 14 M48 20 L48 13" stroke-width="1.6">
-                  </path>
+                  aria-hidden="true">
+                  <path d="M4 10 C 8 26, 52 26, 56 10"></path>
+                  <path d="M12 20 L12 13 M20 23 L20 14 M30 24.5 L30 14.5 M40 23 L40 14 M48 20 L48 13" stroke-width="1.6"></path>
                 </svg>
 
               {% when 'Both Arches' %}
@@ -116,12 +110,9 @@
                   stroke-width="2.2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 16 C 8 0, 52 0, 56 16">
-                  </path>
-                  <path d="M4 24 C 8 40, 52 40, 56 24">
-                  </path>
+                  aria-hidden="true">
+                  <path d="M4 16 C 8 0, 52 0, 56 16"></path>
+                  <path d="M4 24 C 8 40, 52 40, 56 24"></path>
                 </svg>
             {% endcase %}
 
@@ -135,9 +126,7 @@
               </div>
               {% case variant.title %}
                 {% when 'Both Arches' %}
-                  <div
-                    class="save"
-                  >
+                  <div class="save">
                     Save $997 vs. buying separately
                   </div>
               {% endcase %}
@@ -152,102 +141,105 @@
         <div class="price-meta">Paid at checkout</div>
         <div class="price-fine">Less than $3 a day over a 2-year lifespan</div>
         <div class="price-link">
-          {% comment %}
-            <a href="mailto:hello@reviveteeth.com?subject=Revive%20Veneers%20%E2%80%94%20Split%20payment%20request"
-              >Need to split into 3 payments? Contact us →
-            </a>
-          {% endcomment %}
+          {% comment %} 
+                                    <a href="mailto:hello@reviveteeth.com?subject=Revive%20Veneers%20%E2%80%94%20Split%20payment%20request"
+                                    >Need to split into 3 payments? Contact us → 
+                                    </a>
+                              {% endcomment %}
           <a href="{{ section.settings.payment_link }}">
             {{ section.settings.payment_text }}
           </a>
         </div>
       </div>
       <div class="stock">
-        <span class="pulse"> </span>
+        <span class="pulse"></span>
         {{ section.settings.stock_text }}
       </div>
 
-      {% comment %}
-        SHOPIFY
-        DEVELOPER
-        NOTE:
-        This
-        button
-        must
-        be
-        wired
-        to
-        push
-        the
-        selected
-        variant
-        ID
-        to
-        the
-        Shopify
-        cart.
-        The
-        currently
-        selected
-        configuration
-        is
-        tracked
-        via
-        the
-        `current`
-        variable
-        in
-        the
-        JavaScript
-        (values:"upper"
-        ,"lower"
-        ,
-        or"both"
-        ).
-        Map
-        each
-        value
-        to
-        its
-        corresponding
-        Shopify
-        variant
-        ID:
-        upper
-        →
-        $1,
-        497
-        variant,
-        lower
-        →
-        $1,
-        497
-        variant,
-        both
-        →
-        $1,
-        997
-        variant.
-        The
-        `bumpCart`
-        function
-        currently
-        only
-        updates
-        the
-        cart
-        count
-        display
-        —
-        replace
-        it
-        with
-        actual
-        Shopify
-        cart
-        logic.
-      {% endcomment %}
-      <button class="cta" id="cta" data-variant-id="{{ current_variant.id }}">
+      {% comment %} 
+                        SHOPIFY 
+                        DEVELOPER 
+                        NOTE: 
+                        This 
+                        button 
+                        must 
+                        be 
+                        wired 
+                        to 
+                        push 
+                        the 
+                        selected 
+                        variant 
+                        ID 
+                        to 
+                        the 
+                        Shopify 
+                        cart. 
+                        The 
+                        currently 
+                        selected 
+                        configuration 
+                        is 
+                        tracked 
+                        via 
+                        the 
+                        `current` 
+                        variable 
+                        in 
+                        the 
+                        JavaScript 
+                        (values:"upper" 
+                        ,"lower" 
+                        , 
+                        or"both" 
+                        ). 
+                        Map 
+                        each 
+                        value 
+                        to 
+                        its 
+                        corresponding 
+                        Shopify 
+                        variant 
+                        ID: 
+                        upper 
+                        → 
+                        $1, 
+                        497 
+                        variant, 
+                        lower 
+                        → 
+                        $1, 
+                        497 
+                        variant, 
+                        both 
+                        → 
+                        $1, 
+                        997 
+                        variant. 
+                        The 
+                        `bumpCart` 
+                        function 
+                        currently 
+                        only 
+                        updates 
+                        the 
+                        cart 
+                        count 
+                        display 
+                        — 
+                        replace 
+                        it 
+                        with 
+                        actual 
+                        Shopify 
+                        cart 
+                        logic.
+                  {% endcomment %}
+      <button
+        class="cta"
+        id="cta"
+        data-variant-id="{{ current_variant.id }}">
         {{ section.settings.button_text }}
 
         —
@@ -264,8 +256,7 @@
           stroke-width="1.8"
           stroke-linecap="round"
           stroke-linejoin="round"
-          aria-hidden="true"
-        >
+          aria-hidden="true">
           <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path>
           <path d="M8.5 12.5l2.5 2.5L16 10"></path>
         </svg>
@@ -307,81 +298,68 @@
   </div>
 </section>
 
+{% render 'sticky-bars', product: product %}
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     function formatMoney(cents) {
       return '$' + (cents / 100).toLocaleString('en-US');
     }
-
+  
     /* =========================
       GALLERY
   ========================= */
-
+  
     const thumbs = document.querySelectorAll('.thumb');
     const galImg = document.getElementById('galImg');
-
+  
     thumbs.forEach((btn) => {
       btn.addEventListener('click', () => {
         thumbs.forEach((x) => x.classList.remove('active'));
-
+  
         btn.classList.add('active');
-
+  
         if (btn.dataset.image) {
           galImg.src = btn.dataset.image;
         }
       });
     });
-
+  
     /* =========================
       VARIANTS
   ========================= */
-
+  
     const options = document.querySelectorAll('.opt');
     const priceNow = document.getElementById('priceNow');
     const ctaPrice = document.getElementById('ctaPrice');
     const cta = document.getElementById('cta');
-
-    function selectVariant(option) {
-      options.forEach((btn) => btn.classList.remove('selected'));
-
-      option.classList.add('selected');
-
-      const price = parseInt(option.dataset.price, 10);
-
-      priceNow.textContent = formatMoney(price);
-      ctaPrice.textContent = formatMoney(price);
-
-      cta.dataset.variantId = option.dataset.variantId;
-    }
-
-    options.forEach((option) => {
-      option.addEventListener('click', () => {
-        selectVariant(option);
-      });
-    });
-
-    /* =========================
-      DEFAULT SELECT
-  ========================= */
-
-    const defaultOption = document.querySelector('.opt.selected') || options[0];
-
-    if (defaultOption) {
-      selectVariant(defaultOption);
-    }
-
-    /* =========================
-      ADD TO CART
-  ========================= */
-
+  
+   function selectVariant(option) {
+  
+  options.forEach((btn) => btn.classList.remove('selected'));
+  
+  option.classList.add('selected');
+  
+  const price = parseInt(option.dataset.price, 10);
+  
+  priceNow.textContent = formatMoney(price);
+  ctaPrice.textContent = formatMoney(price);
+  
+  cta.dataset.variantId = option.dataset.variantId;
+  
+  document.getElementById('sbL1').textContent = `Revive Veneers · ${option.querySelector('.opt-name').textContent} · ${formatMoney(price)}`;
+  
+  document.getElementById('sbCta').dataset.variantId = option.dataset.variantId;
+      }
+  
     cta.addEventListener('click', async () => {
       const variantId = cta.dataset.variantId;
-
+  
       if (!variantId) {
         alert('Please select a variant');
         return;
       }
-
+  
       try {
         const response = await fetch('/cart/add.js', {
           method: 'POST',
@@ -393,11 +371,11 @@
             quantity: 1,
           }),
         });
-
+  
         if (!response.ok) {
           throw new Error('Add to cart failed');
         }
-
+  
         window.location.href = '/checkout';
       } catch (error) {
         console.error(error);
@@ -406,166 +384,153 @@
     });
   });
 </script>
+
+
 {% schema %}
-{
-  "name": "Hero Product",
-  "settings": [
-    {
-      "type": "product",
-      "id": "product",
-      "label": "Select Product"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Designed by Dr. Brandon Turley, DDS"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "The snap-on veneer your dentist would actually recommend."
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Custom-fitted to your impressions. Designed against a 7-point clinical protocol."
-    },
-
-    {
-      "type": "text",
-      "id": "config_title",
-      "label": "Configuration Title",
-      "default": "Configuration"
-    },
-    {
-      "type": "url",
-      "id": "payment_link",
-      "label": "Payment Link"
-    },
-    {
-      "type": "text",
-      "id": "payment_text",
-      "label": "Payment Link Text",
-      "default": "Need to split into 3 payments? Contact us →"
-    },
-    {
-      "type": "text",
-      "id": "stock_text",
-      "label": "Stock Text",
-      "default": "In stock · Ships your impression kit within 48 hours"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "Add To Cart"
-    },
-    {
-      "type": "text",
-      "id": "guarantee_title",
-      "label": "Guarantee Title",
-      "default": "30-Day Money-Back Guarantee"
-    },
-    {
-      "type": "text",
-      "id": "guarantee_text",
-      "label": "Guarantee Description",
-      "default": "Free remakes · Full refund if it isn't right"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "cred_strip",
-      "name": "Credibility Strip",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text"
-        }
-      ]
-    },
-    {
-      "type": "payment",
-      "name": "Payment Method",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Payment Name",
-          "default": "VISA"
-        }
-      ]
-    },
-    {
-      "type": "credibility",
-      "name": "Trust Badge",
-      "settings": [
-        {
-          "type": "liquid",
-          "id": "icon",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hero Banner",
-      "blocks": [
-        {
-          "type": "payment",
-          "settings": {
-            "label": "VISA"
+  {
+    "name": "Hero Product",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Select Product"
+      },
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "Designed by Dr. Brandon Turley, DDS"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "The snap-on veneer your dentist would actually recommend."
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Custom-fitted to your impressions. Designed against a 7-point clinical protocol."
+      }, {
+        "type": "text",
+        "id": "config_title",
+        "label": "Configuration Title",
+        "default": "Configuration"
+      }, {
+        "type": "url",
+        "id": "payment_link",
+        "label": "Payment Link"
+      }, {
+        "type": "text",
+        "id": "payment_text",
+        "label": "Payment Link Text",
+        "default": "Need to split into 3 payments? Contact us →"
+      }, {
+        "type": "text",
+        "id": "stock_text",
+        "label": "Stock Text",
+        "default": "In stock · Ships your impression kit within 48 hours"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Add To Cart"
+      }, {
+        "type": "text",
+        "id": "guarantee_title",
+        "label": "Guarantee Title",
+        "default": "30-Day Money-Back Guarantee"
+      }, {
+        "type": "text",
+        "id": "guarantee_text",
+        "label": "Guarantee Description",
+        "default": "Free remakes · Full refund if it isn't right"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "cred_strip",
+        "name": "Credibility Strip",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
           }
-        },
-        {
-          "type": "payment",
-          "settings": {
-            "label": "Mastercard"
+        ]
+      }, {
+        "type": "payment",
+        "name": "Payment Method",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Payment Name",
+            "default": "VISA"
           }
-        },
-        {
-          "type": "payment",
-          "settings": {
-            "label": "AMEX"
+        ]
+      }, {
+        "type": "credibility",
+        "name": "Trust Badge",
+        "settings": [
+          {
+            "type": "liquid",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
           }
-        },
-        {
-          "type": "payment",
-          "settings": {
-            "label": "Apple Pay"
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Banner",
+        "blocks": [
+          {
+            "type": "payment",
+            "settings": {
+              "label": "VISA"
+            }
+          },
+          {
+            "type": "payment",
+            "settings": {
+              "label": "Mastercard"
+            }
+          },
+          {
+            "type": "payment",
+            "settings": {
+              "label": "AMEX"
+            }
+          },
+          {
+            "type": "payment",
+            "settings": {
+              "label": "Apple Pay"
+            }
+          }, {
+            "type": "credibility",
+            "settings": {
+              "text": "Secure SSL Checkout"
+            }
+          }, {
+            "type": "credibility",
+            "settings": {
+              "text": "Dentist-designed"
+            }
+          }, {
+            "type": "credibility",
+            "settings": {
+              "text": "30-day money-back guarantee"
+            }
           }
-        },
-
-        {
-          "type": "credibility",
-          "settings": {
-            "text": "Secure SSL Checkout"
-          }
-        },
-        {
-          "type": "credibility",
-          "settings": {
-            "text": "Dentist-designed"
-          }
-        },
-        {
-          "type": "credibility",
-          "settings": {
-            "text": "30-day money-back guarantee"
-          }
-        }
-      ]
-    }
-  ]
-}
+        ]
+      }
+    ]
+  }
 {% endschema %}
