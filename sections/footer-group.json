@@ -53,28 +53,28 @@
           "type": "legal_link",
           "settings": {
             "title": "Privacy Policy",
-            "url": ""
+            "url": "#"
           }
         },
         "legal_link_VW8c9R": {
           "type": "legal_link",
           "settings": {
             "title": "Terms of Service",
-            "url": ""
+            "url": "#"
           }
         },
         "legal_link_KqgDkc": {
           "type": "legal_link",
           "settings": {
             "title": "Return Policy",
-            "url": ""
+            "url": "#"
           }
         },
         "legal_link_cPiegU": {
           "type": "legal_link",
           "settings": {
             "title": "Shipping Policy",
-            "url": ""
+            "url": "#"
           }
         }
       },
