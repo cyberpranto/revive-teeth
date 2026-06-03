@@ -238,7 +238,7 @@ h2.display {
 
 /* -------------- HEADER -------------- */
 header.nav {
-  position: sticky;
+  position: sticky !important;
   top: 0;
   z-index: 50;
   background: rgba(255, 255, 255, 0.92);
@@ -817,6 +817,11 @@ section {
   section {
     padding: 72px 0;
   }
+  /* gallery */
+  /* .gallery {
+    position: relative;
+    top: 0px;
+  } */
 }
 
 section.navy {
