@@ -27,26 +27,25 @@
             class="thumb {% if forloop.first %}active{% endif %}"
             data-image="{{ image | image_url: width: 1200 }}"
           >
-            <img
-              src="{{ image | image_url: width: 200 }}"
-              alt="{{ image.alt }}"
-              width="200"
-              height="200"
-            >
+            <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt }}" width="200" height="200">
           </button>
         {% endfor %}
       </div>
     </div>
     <div class="buybox">
-      <div class="eyebrow-sm">Designed by Dr. Brandon Turley, DDS</div>
+      <div class="eyebrow-sm">
+        {{ section.settings.eyebrow }}
+      </div>
       <div class="cred-strip">
-        DDS
-        <span class="dot">· </span>
-        12+years clinical practice
-        <span class="dot">· </span>
-        7-Point design protocol
-        <span class="dot">· </span>
-        Designed in the USA
+        {% for block in section.blocks %}
+          {% if block.type == 'cred_strip' %}
+            {{ block.settings.text }}
+
+            {% unless forloop.last %}
+              <span class="dot">·</span>
+            {% endunless %}
+          {% endif %}
+        {% endfor %}
       </div>
       <h1 class="display">
         {{ section.settings.heading }}
@@ -56,67 +55,116 @@
       </p>
       <hr>
       <div class="config-label">
-        Configuration
+        {{ section.settings.config_title }}
         <span class="req">· Choose one </span>
       </div>
-      <div
-        class="config"
-        id="config"
-      >
+      <div class="config" id="config">
         {% for variant in product.variants %}
           <button
-            class="opt {% if variant.id == current_variant.id %}selected{% endif %}"
+            class="opt {% if forloop.first %}selected{% endif %}"
             data-variant-id="{{ variant.id }}"
             data-price="{{ variant.price }}"
           >
+            {% case variant.title %}
+              {% when 'Upper Arch' %}
+                <!-- Upper SVG -->
+                <svg
+                  class="arch-icon"
+                  viewBox="0 0 60 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 22 C 8 6, 52 6, 56 22">
+                  </path>
+                  <path d="M12 12 L12 19 M20 9 L20 18 M30 7.5 L30 17.5 M40 9 L40 18 M48 12 L48 19" stroke-width="1.6">
+                  </path>
+                </svg>
+
+              {% when 'Lower Arch' %}
+                <!-- Lower SVG -->
+
+                <svg
+                  class="arch-icon"
+                  viewBox="0 0 60 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 10 C 8 26, 52 26, 56 10">
+                  </path>
+                  <path d="M12 20 L12 13 M20 23 L20 14 M30 24.5 L30 14.5 M40 23 L40 14 M48 20 L48 13" stroke-width="1.6">
+                  </path>
+                </svg>
+
+              {% when 'Both Arches' %}
+                <span class="badge">Most Chosen</span>
+
+                <!-- Both SVG -->
+
+                <svg
+                  class="arch-icon"
+                  viewBox="0 0 60 40"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 16 C 8 0, 52 0, 56 16">
+                  </path>
+                  <path d="M4 24 C 8 40, 52 40, 56 24">
+                  </path>
+                </svg>
+            {% endcase %}
+
             <div>
               <div class="opt-name">
                 {{ variant.title }}
               </div>
 
               <div class="opt-price">
-                {{ variant.price | money }}
+                {{ variant.price | money_without_trailing_zeros }}
               </div>
+              {% case variant.title %}
+                {% when 'Both Arches' %}
+                  <div
+                    class="save"
+                  >
+                    Save $997 vs. buying separately
+                  </div>
+              {% endcase %}
             </div>
           </button>
         {% endfor %}
       </div>
-      <div
-        class="price-block"
-      >
-        <div
-          class="price-now"
-          id="priceNow"
-        >
-          {{ current_variant.price | money }}
+      <div class="price-block">
+        <div class="price-now" id="priceNow">
+          {{ current_variant.price | money_without_trailing_zeros }}
         </div>
-        <div
-          class="price-meta"
-        >
-          Paid at checkout
-        </div>
-        <div
-          class="price-fine"
-        >
-          Less than $3 a day over a 2-year lifespan
-        </div>
-        <div
-          class="price-link"
-        >
-          <a
-            href="mailto:hello@reviveteeth.com?subject=Revive%20Veneers%20%E2%80%94%20Split%20payment%20request"
-            >Need to split into 3 payments? Contact us →
+        <div class="price-meta">Paid at checkout</div>
+        <div class="price-fine">Less than $3 a day over a 2-year lifespan</div>
+        <div class="price-link">
+          {% comment %}
+            <a href="mailto:hello@reviveteeth.com?subject=Revive%20Veneers%20%E2%80%94%20Split%20payment%20request"
+              >Need to split into 3 payments? Contact us →
+            </a>
+          {% endcomment %}
+          <a href="{{ section.settings.payment_link }}">
+            {{ section.settings.payment_text }}
           </a>
         </div>
       </div>
-      <div
-        class="stock"
-      >
-        <span
-          class="pulse"
-        >
-        </span>
-        In stock · Ships your impression kit within 48 hours
+      <div class="stock">
+        <span class="pulse"> </span>
+        {{ section.settings.stock_text }}
       </div>
 
       {% comment %}
@@ -199,17 +247,13 @@
         cart
         logic.
       {% endcomment %}
-      <button
-        class="cta"
-        id="cta"
-        data-variant-id="{{ current_variant.id }}"
-      >
+      <button class="cta" id="cta" data-variant-id="{{ current_variant.id }}">
         {{ section.settings.button_text }}
 
         —
 
         <span id="ctaPrice">
-          {{ current_variant.price | money }}
+          {{ current_variant.price | money_without_trailing_zeros }}
         </span>
       </button>
       <div class="guarantee-pill">
@@ -222,212 +266,146 @@
           stroke-linejoin="round"
           aria-hidden="true"
         >
-          <path
-              d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z">
-              </path>
-                  <path
-                      d="M8.5 12.5l2.5 2.5L16 10">
-                      </path>
+          <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path>
+          <path d="M8.5 12.5l2.5 2.5L16 10"></path>
         </svg>
+
         <div>
-          <div
-            class="gp-l1"
-          >
-            30-Day Money-Back Guarantee
+          <div class="gp-l1">
+            {{ section.settings.guarantee_title }}
           </div>
-          <div
-            class="gp-l2"
-          >
-            Free remakes · Full refund if it isn't right
+
+          <div class="gp-l2">
+            {{ section.settings.guarantee_text }}
           </div>
         </div>
       </div>
-      <div
-        class="pay-row"
-        aria-label="Accepted payment methods"
-      >
-        <!--
-          PLACEHOLDER: Replace these text pills with real payment provider logos (SVG) before launch: Visa, Mastercard, Amex, Apple Pay.
-        -->
-        <span
-          class="pay-pill"
-          >VISA
-        </span>
-        <span
-          class="pay-pill"
-          >Mastercard
-        </span>
-        <span
-          class="pay-pill"
-          >AMEX
-        </span>
-        <span
-          class="pay-pill"
-          >Apple Pay
-        </span>
+
+      <div class="pay-row" aria-label="Accepted payment methods">
+        {% for block in section.blocks %}
+          {% if block.type == 'payment' %}
+            <span class="pay-pill">
+              {{ block.settings.label }}
+            </span>
+          {% endif %}
+        {% endfor %}
       </div>
-      <div
-        class="cred-row"
-      >
-        <span
-          class="cred"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <rect
-                x="4"
-                y="11"
-                width="16"
-                height="10"
-                rx="2">
-                </rect>
-                    <path
-                        d="M8 11V7a4 4 0 0 1 8 0v4">
-                        </path>
-          </svg>
-          Secure SSL checkout
-        </span>
-        <span
-          class="cred"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle
-                cx="12"
-                cy="8"
-                r="4">
-                </circle>
-                    <path
-                        d="M4 21c0-4 4-6 8-6s8 2 8 6">
-                        </path>
-          </svg>
-          Dentist-designed
-        </span>
-        <span
-          class="cred"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-                d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z">
-                </path>
-          </svg>
-          30-day money-back guarantee
-        </span>
+
+      <div class="cred-row">
+        {% for block in section.blocks %}
+          {% if block.type == 'credibility' %}
+            <span class="cred">
+              {% if block.settings.icon != blank %}
+                {{ block.settings.icon }}
+              {% endif %}
+              {{ block.settings.text }}
+            </span>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
 </section>
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    function formatMoney(cents) {
+      return '$' + (cents / 100).toLocaleString('en-US');
+    }
 
-document.addEventListener("DOMContentLoaded",()=>{
+    /* =========================
+      GALLERY
+  ========================= */
 
+    const thumbs = document.querySelectorAll('.thumb');
+    const galImg = document.getElementById('galImg');
 
-function formatMoney(cents) {
-  return "$" + (cents / 100).toLocaleString("en-US");
-}
+    thumbs.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        thumbs.forEach((x) => x.classList.remove('active'));
 
-const thumbs =
-document.querySelectorAll(".thumb");
+        btn.classList.add('active');
 
-const galImg =
-document.getElementById("galImg");
+        if (btn.dataset.image) {
+          galImg.src = btn.dataset.image;
+        }
+      });
+    });
 
-thumbs.forEach(btn=>{
+    /* =========================
+      VARIANTS
+  ========================= */
 
-btn.addEventListener("click",()=>{
+    const options = document.querySelectorAll('.opt');
+    const priceNow = document.getElementById('priceNow');
+    const ctaPrice = document.getElementById('ctaPrice');
+    const cta = document.getElementById('cta');
 
-thumbs.forEach(x=>
-x.classList.remove("active"));
+    function selectVariant(option) {
+      options.forEach((btn) => btn.classList.remove('selected'));
 
-btn.classList.add("active");
+      option.classList.add('selected');
 
-galImg.src =
-btn.dataset.image;
+      const price = parseInt(option.dataset.price, 10);
 
-});
+      priceNow.textContent = formatMoney(price);
+      ctaPrice.textContent = formatMoney(price);
 
-});
+      cta.dataset.variantId = option.dataset.variantId;
+    }
 
-const options =
-document.querySelectorAll(".opt");
+    options.forEach((option) => {
+      option.addEventListener('click', () => {
+        selectVariant(option);
+      });
+    });
 
-const priceNow =
-document.getElementById("priceNow");
+    /* =========================
+      DEFAULT SELECT
+  ========================= */
 
-const ctaPrice =
-document.getElementById("ctaPrice");
+    const defaultOption = document.querySelector('.opt.selected') || options[0];
 
-const cta =
-document.getElementById("cta");
+    if (defaultOption) {
+      selectVariant(defaultOption);
+    }
 
-options.forEach(option=>{
+    /* =========================
+      ADD TO CART
+  ========================= */
 
-option.addEventListener("click",()=>{
+    cta.addEventListener('click', async () => {
+      const variantId = cta.dataset.variantId;
 
-options.forEach(btn=>
-btn.classList.remove("selected"));
+      if (!variantId) {
+        alert('Please select a variant');
+        return;
+      }
 
-option.classList.add("selected");
+      try {
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: Number(variantId),
+            quantity: 1,
+          }),
+        });
 
-const price =
-parseInt(
-option.dataset.price
-);
+        if (!response.ok) {
+          throw new Error('Add to cart failed');
+        }
 
-priceNow.textContent = formatMoney(price);
-ctaPrice.textContent = formatMoney(price);
-
-cta.dataset.variantId =
-option.dataset.variantId;
-
-});
-
-});
-
-cta.addEventListener("click",async()=>{
-
-await fetch("/cart/add.js",{
-
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-id:cta.dataset.variantId,
-
-quantity:1
-
-})
-
-});
-
-window.location.href =
-"/checkout";
-
-});
-
-});
-
+        window.location.href = '/checkout';
+      } catch (error) {
+        console.error(error);
+        alert('Unable to add product to cart');
+      }
+    });
+  });
 </script>
-
 {% schema %}
 {
   "name": "Hero Product",
@@ -455,16 +433,138 @@ window.location.href =
       "label": "Description",
       "default": "Custom-fitted to your impressions. Designed against a 7-point clinical protocol."
     },
+
+    {
+      "type": "text",
+      "id": "config_title",
+      "label": "Configuration Title",
+      "default": "Configuration"
+    },
+    {
+      "type": "url",
+      "id": "payment_link",
+      "label": "Payment Link"
+    },
+    {
+      "type": "text",
+      "id": "payment_text",
+      "label": "Payment Link Text",
+      "default": "Need to split into 3 payments? Contact us →"
+    },
+    {
+      "type": "text",
+      "id": "stock_text",
+      "label": "Stock Text",
+      "default": "In stock · Ships your impression kit within 48 hours"
+    },
     {
       "type": "text",
       "id": "button_text",
       "label": "Button Text",
       "default": "Add To Cart"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_title",
+      "label": "Guarantee Title",
+      "default": "30-Day Money-Back Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Description",
+      "default": "Free remakes · Full refund if it isn't right"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cred_strip",
+      "name": "Credibility Strip",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "payment",
+      "name": "Payment Method",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Payment Name",
+          "default": "VISA"
+        }
+      ]
+    },
+    {
+      "type": "credibility",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Hero Product"
+      "name": "Hero Banner",
+      "blocks": [
+        {
+          "type": "payment",
+          "settings": {
+            "label": "VISA"
+          }
+        },
+        {
+          "type": "payment",
+          "settings": {
+            "label": "Mastercard"
+          }
+        },
+        {
+          "type": "payment",
+          "settings": {
+            "label": "AMEX"
+          }
+        },
+        {
+          "type": "payment",
+          "settings": {
+            "label": "Apple Pay"
+          }
+        },
+
+        {
+          "type": "credibility",
+          "settings": {
+            "text": "Secure SSL Checkout"
+          }
+        },
+        {
+          "type": "credibility",
+          "settings": {
+            "text": "Dentist-designed"
+          }
+        },
+        {
+          "type": "credibility",
+          "settings": {
+            "text": "30-day money-back guarantee"
+          }
+        }
+      ]
     }
   ]
 }

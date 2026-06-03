@@ -81,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ============== CART BTN ============== */
 
 document.addEventListener("DOMContentLoaded", function () {
-
   function bumpCart() {
     const el = document.getElementById("cartCount");
     el.textContent = (parseInt(el.textContent || "0", 10) + 1).toString();
@@ -99,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("sbInfo").addEventListener("click", () => {
     document.querySelector("#top").scrollIntoView({ behavior: "smooth" });
   });
-
 });
 
 /* ============== NAV SCROLL ============== */
