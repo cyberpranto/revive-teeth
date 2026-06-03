@@ -237,7 +237,7 @@ h2.display {
 }
 
 /* -------------- HEADER -------------- */
-header.nav {
+header#nav {
   position: sticky !important;
   top: 0;
   z-index: 50;
@@ -247,9 +247,11 @@ header.nav {
     border-color 0.2s ease,
     box-shadow 0.2s ease;
   border-bottom: 1px solid transparent;
+  overflow: visible;
+  transform: none;
 }
 
-header.nav.scrolled {
+header#nav.scrolled {
   border-bottom-color: var(--line);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
 }

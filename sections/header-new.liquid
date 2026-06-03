@@ -1,85 +1,97 @@
 <!-- ============== NAV ============== -->
-<header class="nav" id="nav">
-  <div class="wrap nav-inner">
 
-    <a
-      href="{{ section.settings.logo_link | default: '#top' }}"
-      class="brand"
-      aria-label="{{ section.settings.logo_alt | default: 'Revive Teeth' }}">
-
-      {% if section.settings.logo %}
-        <img
-          src="{{ section.settings.logo | image_url: width: 300 }}"
-          alt="{{ section.settings.logo_alt | default: 'Revive Teeth' }}"
-          width="100"
-          height="100">
-      {% else %}
-        <img
-          src="{{ 'footer-logo.jfif' | asset_url }}"
-          alt="Revive Teeth"
-          width="100"
-          height="100">
-      {% endif %}
-
-    </a>
-
-    <nav class="navlinks" aria-label="Primary">
-
-      {% if section.blocks.size > 0 %}
-
-        {% for block in section.blocks %}
-          <a href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
-            {{ block.settings.label }}
-          </a>
-        {% endfor %}
-
-      {% else %}
-
-        <a href="#how">How It Works</a>
-        <a href="#protocol">The Protocol</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#candidate">Am I a Candidate?</a>
-        <a href="#faq">FAQ</a>
-
-      {% endif %}
-
-    </nav>
-
-    <div class="nav-right">
-      <button class="cart-btn" aria-label="Cart">
-
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8">
-          <path d="M6 6h15l-1.5 9h-12z"></path>
-          <circle
-            cx="9"
-            cy="20"
-            r="1.5"></circle>
-          <circle
-            cx="18"
-            cy="20"
-            r="1.5"></circle>
-          <path d="M6 6L4 2H2"></path>
-        </svg>
-
-        {{ section.settings.cart_text | default: 'Cart' }}
-
-        <span class="count" id="cartCount">
-          {{ cart.item_count }}
-        </span>
-
-      </button>
+<style>
+  .header-wrapper {
+    height: auto;
+    width: 100%;
+    position: sticky!important;
+    top: 0;
+  }
+</style>
+ <div class="header-wrapper">
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+  
+      <a
+        href="{{ section.settings.logo_link | default: '#top' }}"
+        class="brand"
+        aria-label="{{ section.settings.logo_alt | default: 'Revive Teeth' }}">
+  
+        {% if section.settings.logo %}
+          <img
+            src="{{ section.settings.logo | image_url: width: 300 }}"
+            alt="{{ section.settings.logo_alt | default: 'Revive Teeth' }}"
+            width="100"
+            height="100">
+        {% else %}
+          <img
+            src="{{ 'footer-logo.jfif' | asset_url }}"
+            alt="Revive Teeth"
+            width="100"
+            height="100">
+        {% endif %}
+  
+      </a>
+  
+      <nav class="navlinks" aria-label="Primary">
+  
+        {% if section.blocks.size > 0 %}
+  
+          {% for block in section.blocks %}
+            <a href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+              {{ block.settings.label }}
+            </a>
+          {% endfor %}
+  
+        {% else %}
+  
+          <a href="#how">How It Works</a>
+          <a href="#protocol">The Protocol</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#candidate">Am I a Candidate?</a>
+          <a href="#faq">FAQ</a>
+  
+        {% endif %}
+  
+      </nav>
+  
+      <div class="nav-right">
+        <button class="cart-btn" aria-label="Cart">
+  
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+            <path d="M6 6h15l-1.5 9h-12z"></path>
+            <circle
+              cx="9"
+              cy="20"
+              r="1.5"></circle>
+            <circle
+              cx="18"
+              cy="20"
+              r="1.5"></circle>
+            <path d="M6 6L4 2H2"></path>
+          </svg>
+  
+          {{ section.settings.cart_text | default: 'Cart' }}
+  
+          <span class="count" id="cartCount">
+            {{ cart.item_count }}
+          </span>
+  
+        </button>
+      </div>
+  
     </div>
+  </header>
+  
+  <a id="top"></a>
+ </div>
 
-  </div>
-</header>
-
-<a id="top"></a>
 
 
 {% schema %}

@@ -109,11 +109,14 @@ window.addEventListener("scroll", () => {
 /* ============== GALLERY ============== */
 const thumbs = document.querySelectorAll(".thumb");
 const galMain = document.getElementById("galMain");
+const galMainMobile = document.getElementById("galMainmobile");
+
 thumbs.forEach((t, i) => {
   t.addEventListener("click", () => {
     thumbs.forEach((x) => x.classList.remove("active"));
     t.classList.add("active");
     galMain.classList.add("fade");
+    galMainMobile.classList.add("fade");
     setTimeout(() => {
       const rid = t.dataset.rid;
       const src =
@@ -122,6 +125,8 @@ thumbs.forEach((t, i) => {
       const alt = t.dataset.alt || "Revive Veneers";
       galMain.innerHTML = `<img id="galImg"src="${src}"alt="Revive Veneers · ${alt}"/>`;
       galMain.classList.remove("fade");
+      galMainMobile.innerHTML = `<img id="galImg"src="${src}"alt="Revive Veneers · ${alt}"/>`;
+      galMainMobile.classList.remove("fade");
     }, 220);
   });
 });

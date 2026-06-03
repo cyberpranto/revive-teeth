@@ -34,7 +34,7 @@
   <div class="wrap hero-grid">
     <!-- < !-- Gallery -->
     <div class="gallery desk">
-      <div class="gallery-main">
+      <div class="gallery-main" id="galMain">
         <img
           id="galImg"
           src="{{ product.featured_image | image_url: width: 1200 }}"
@@ -79,7 +79,7 @@
       <hr>
       <div class="mobile-version-gallery">
         <div class="gallery">
-          <div class="gallery-main">
+          <div class="gallery-main" id="galMainmobile">
             <img
               id="galImg"
               src="{{ product.featured_image | image_url: width: 1200 }}"
