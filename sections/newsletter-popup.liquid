@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     e.preventDefault();
 
-    const email = document.getElementById('exitEmail').value;
+    const email =
+      document.getElementById('exitEmail').value;
 
     try {
 
@@ -73,9 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type':
+              'application/x-www-form-urlencoded'
           },
-          body: JSON.stringify({
+          body: new URLSearchParams({
             g: '{{ section.settings.klaviyo_list_id }}',
             email: email
           })
@@ -91,15 +93,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       exitForm.style.display = 'none';
 
-      document.getElementById('exitSuccess').style.display = 'block';
+      document.getElementById('exitSuccess').style.display =
+        'block';
 
       setTimeout(() => {
         closeModal('exitModal');
       }, 1500);
 
-    } catch (error) {
+    } catch(error) {
 
-      console.error('Klaviyo error:', error);
+      console.error(error);
+
+      alert('Unable to subscribe');
 
     }
 
