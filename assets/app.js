@@ -389,12 +389,15 @@ function maybeShowExit() {
   sessionStorage.setItem("reviveExit", "1");
   openModal("exitModal");
 }
-document.addEventListener("mouseout", (e) => {
-  if (!e.toElement && !e.relatedTarget && e.clientY < 10) {
-    maybeShowExit();
-  }
-});
-// fallback timer (after 60s on mobile/ no mouse)
 setTimeout(() => {
-  if (!exitShown && window.scrollY > window.innerHeight) maybeShowExit();
-}, 60000);
+  maybeShowExit();
+}, 3000);
+// document.addEventListener("mouseout", (e) => {
+//   if (!e.toElement && !e.relatedTarget && e.clientY < 10) {
+//     maybeShowExit();
+//   }
+// });
+// fallback timer (after 60s on mobile/ no mouse)
+// setTimeout(() => {
+//   if (!exitShown && window.scrollY > window.innerHeight) maybeShowExit();
+// }, 60000);
