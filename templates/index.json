@@ -12,6 +12,30 @@
     "hero_jEkMen": {
       "type": "hero",
       "blocks": {
+        "cred_strip_nEFi3h": {
+          "type": "cred_strip",
+          "settings": {
+            "text": "DDS "
+          }
+        },
+        "cred_strip_GwyKhP": {
+          "type": "cred_strip",
+          "settings": {
+            "text": "12+ years clinical practice"
+          }
+        },
+        "cred_strip_A9PPC9": {
+          "type": "cred_strip",
+          "settings": {
+            "text": "7-Point design protocol"
+          }
+        },
+        "cred_strip_YWTzzE": {
+          "type": "cred_strip",
+          "settings": {
+            "text": "Designed in the USA"
+          }
+        },
         "payment_BkfJEF": {
           "type": "payment",
           "settings": {
@@ -59,6 +83,10 @@
         }
       },
       "block_order": [
+        "cred_strip_nEFi3h",
+        "cred_strip_GwyKhP",
+        "cred_strip_A9PPC9",
+        "cred_strip_YWTzzE",
         "payment_BkfJEF",
         "payment_tyyQFk",
         "payment_gHzha4",
