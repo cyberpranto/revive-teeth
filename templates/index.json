@@ -11,7 +11,19 @@
   "sections": {
     "newsletter-popup": {
       "type": "newsletter-popup",
-      "settings": {}
+      "settings": {
+        "enable_popup": true,
+        "klaviyo_list_id": "TgdTpy",
+        "eyebrow": "Before you go",
+        "heading": "Not sure if Revive Veneers are right for you?",
+        "description": "Take our 30-second Smile Assessment. We'll tell you honestly whether you're a candidate, and email you Dr.\n      Turley's pre-order guide.",
+        "placeholder": "you@example.com",
+        "button_text": "Send Guide",
+        "quiz_button": "Take the 30-second Smile Assessment",
+        "footer_text": "No spam. Unsubscribe anytime.",
+        "success_title": "Check your inbox.",
+        "success_message": "Your guide has been sent."
+      }
     },
     "hero_jEkMen": {
       "type": "hero",
