@@ -53,7 +53,7 @@
         "credibility_7MkGzf": {
           "type": "credibility",
           "settings": {
-            "icon": "",
+            "icon": "<svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            stroke-width=\"2\"\n          >\n            <path\n                d=\"M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z\">\n                </path>\n          </svg>",
             "text": "30-day money-back guarantee"
           }
         }
