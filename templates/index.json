@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "newsletter-popup": {
+      "type": "newsletter-popup",
+      "settings": {}
+    },
     "hero_jEkMen": {
       "type": "hero",
       "blocks": {
@@ -654,6 +658,7 @@
     }
   },
   "order": [
+    "newsletter-popup",
     "hero_jEkMen",
     "founder-video",
     "testimonials_nanVhw",
