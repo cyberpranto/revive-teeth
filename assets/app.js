@@ -1,31 +1,3 @@
-/* ============== CONFIG STATE ============== */
-// const CONFIGS = {
-//     upper: { label: "Upper Arch", price: 1497 },
-//     lower: { label: "Lower Arch", price: 1497 },
-//     both: { label: "Both Arches", price: 1997 },
-// };
-// let current = "both";
-// function fmt(n) {
-//     return "$" + n.toLocaleString("en-US");
-// }
-// function applyConfig(key) {
-//     current = key;
-//     const c = CONFIGS[key];
-//     document.querySelectorAll(".opt").forEach((o) => {
-//         const sel = o.dataset.key === key;
-//         o.classList.toggle("selected", sel);
-//         o.setAttribute("aria-checked", sel ? "true" : "false");
-//     });
-//     document.getElementById("priceNow").textContent = fmt(c.price);
-//     document.getElementById("ctaPrice").textContent = fmt(c.price);
-//     document.getElementById("sbL1").textContent =
-//         `Revive Veneers · ${c.label}${fmt(c.price)}`;
-// }
-// document.querySelectorAll(".opt").forEach((o) => {
-//     o.addEventListener("click", () => applyConfig(o.dataset.key));
-// });
-// applyConfig("both");
-
 /* ============== PROTOCOL MOBILE COLLAPSE (Edit 4) ============== */
 // Inject chevron into each collapsible protocol card and wire up tap-to-expand.
 
@@ -397,12 +369,3 @@ function maybeShowExit() {
 setTimeout(() => {
   maybeShowExit();
 }, 3000);
-// document.addEventListener("mouseout", (e) => {
-//   if (!e.toElement && !e.relatedTarget && e.clientY < 10) {
-//     maybeShowExit();
-//   }
-// });
-// fallback timer (after 60s on mobile/ no mouse)
-// setTimeout(() => {
-//   if (!exitShown && window.scrollY > window.innerHeight) maybeShowExit();
-// }, 60000);

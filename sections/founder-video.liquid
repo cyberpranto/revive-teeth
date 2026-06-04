@@ -1,6 +1,94 @@
+<style>
+  /* -------------- SECTION: FOUNDER VIDEO (NEW) -------------- */
+  .fv-section .fv-head {
+    max-width: 760px;
+    margin: 0 auto 36px;
+    text-align: center;
+  }
+
+  .fv-section .fv-head .eyebrow {
+    margin-bottom: 0;
+  }
+
+  .fv-section .fv-head .sub {
+    margin: 16px auto 0;
+    max-width: 640px;
+  }
+
+  .fv-frame {
+    max-width: 780px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    background: #fff;
+    border-radius: var(--r-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(15, 27, 56, 0.1), 0 8px 24px rgba(15, 27, 56, 0.06);
+  }
+
+  .fv-frame .play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  .fv-frame .play-btn {
+    width: 88px;
+    height: 88px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fv-frame .play-btn svg {
+    width: 28px;
+    height: 28px;
+    margin-left: 0px;
+  }
+
+  .fv-cap {
+    margin-top: 18px;
+    font-size: 13.5px;
+    color: var(--ink-3);
+    text-align: center;
+  }
+
+  .fv-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .fv-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+  }
+
+  .fv-poster.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .fv-frame .play {
+    z-index: 3;
+  }
+
+  .fv-frame.playing .play {
+    display: none;
+  }
+</style>
+
 <section class="cream fv-section">
   <div class="wrap">
-
     <div class="fv-head">
       <div class="eyebrow">
         {{ section.settings.eyebrow }}
@@ -16,42 +104,75 @@
     </div>
 
     <div class="fv-frame">
-
-      {% if section.settings.video != blank %}
-
-        {{
-          section.settings.video
-          | video_tag:
-            autoplay: false,
-            loop: false,
-            controls: true,
-            muted: false
-        }}
-
-      {% elsif section.settings.video_url != blank %}
-
-        <iframe
-        src="{{ section.settings.video_url }}"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
-
-      {% else %}
-
-        <div class="video-placeholder">
-          Upload a video
-        </div>
-
+      {% if section.settings.video_poster %}
+        <img
+          class="fv-poster"
+          src="{{ section.settings.video_poster | image_url: width: 1600 }}"
+          alt="{{ section.settings.heading }}"
+          loading="lazy"
+          height="100"
+          width="100"
+        >
       {% endif %}
 
+      {% if section.settings.video != blank %}
+        {{
+          section.settings.video
+          | video_tag: class: 'fv-video', controls: false, autoplay: false, loop: false, muted: false, playsinline: true
+        }}
+
+      {% else %}
+        <div class="video-placeholder">Upload a video</div>
+      {% endif %}
+
+      <div class="play">
+        <button
+          class="play-btn"
+          id="playFounderVideo"
+          aria-label="Play founder video"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 4l14 8-14 8z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <div class="fv-cap">
       {{ section.settings.caption }}
     </div>
-
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const frame = document.querySelector('.fv-frame');
+
+    if (!frame) return;
+
+    const video = frame.querySelector('video');
+    const poster = frame.querySelector('.fv-poster');
+    const playBtn = document.getElementById('playFounderVideo');
+
+    if (!video || !playBtn) return;
+
+    playBtn.addEventListener('click', async () => {
+      frame.classList.add('playing');
+
+      if (poster) {
+        poster.classList.add('hide');
+      }
+
+      video.setAttribute('controls', '');
+
+      try {
+        await video.play();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -79,16 +200,12 @@
     {
       "type": "video",
       "id": "video",
-      "label": "Shopify Hosted Video"
+      "label": "Video"
     },
     {
-      "type": "video_url",
-      "id": "video_url",
-      "label": "YouTube / Vimeo URL",
-      "accept": [
-        "youtube",
-        "vimeo"
-      ]
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "Video Poster"
     },
     {
       "type": "text",

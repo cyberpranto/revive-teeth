@@ -910,6 +910,36 @@ section.navy .sub {
   text-align: center;
 }
 
+.fv-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fv-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.fv-poster.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fv-frame .play {
+  z-index: 3;
+}
+
+.fv-frame.playing .play {
+  display: none;
+}
+
 /* -------------- SECTION: LIFESTYLE BANNER (NEW) -------------- */
 .lifestyle {
   padding: 0;
