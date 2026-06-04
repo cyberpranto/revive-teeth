@@ -238,7 +238,7 @@ h2.display {
 
 /* -------------- HEADER -------------- */
 
-.shopify-section-group-header-group header#nav {
+/* header#nav {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: saturate(140%) blur(8px);
   transition:
@@ -249,10 +249,10 @@ h2.display {
   transform: none;
 }
 
-.shopify-section-group-header-group header#nav.scrolled {
+header#nav.scrolled {
   border-bottom-color: var(--line);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
-}
+} */
 
 .nav-inner {
   display: flex;
