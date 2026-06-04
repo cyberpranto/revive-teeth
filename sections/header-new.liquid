@@ -1,12 +1,27 @@
 <!-- ============== NAV ============== -->
 
 <style>
-  /* .header-wrapper {
-    height: auto;
-    width: 100%;
-    position: sticky!important;
-    top: 0;
-  } */
+  #shopify-section-{{section.id}} {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+#shopify-section-{{section.id}} header#nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(140%) blur(8px);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  border-bottom: 1px solid transparent;
+  overflow: visible;
+  transform: none;
+}
+
+#shopify-section-{{section.id}} header#nav.scrolled {
+  border-bottom-color: var(--line);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+}
 </style>
  <div class="header-wrapper">
   <header class="nav" id="nav">

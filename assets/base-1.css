@@ -237,11 +237,7 @@ h2.display {
 }
 
 /* -------------- HEADER -------------- */
-#shopify-section-sections--30412951126354__header_new_BipAaK {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
+
 .shopify-section-group-header-group header#nav {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: saturate(140%) blur(8px);
