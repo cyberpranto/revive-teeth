@@ -20,8 +20,7 @@ html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
 img,
 picture,
 video,
-canvas,
-svg {
+canvas {
   display: block;
   max-width: 100%;
   width: 100%;
